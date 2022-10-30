@@ -1,15 +1,12 @@
+scene = Scene()
+triangle = Polygon(scene)
+
+triangle:addVertex(0, -100)
+triangle:addVertex(-50, 50)
+triangle:addVertex(Vector3(50, 50,0))
+
+triangle.position = Vector3(300,300,0)
+triangle:setColor(0.6, 0.2, 0.6, 1)
+
 Engine.setCanvasSize(1000,480)
-
-cena = Scene()
-triangulo = Polygon()
-
-triangulo:addVertex(0, -100, 0)
-triangulo:addVertex(-50, 50, 0)
-triangulo:addVertex(50, 50, 0)
-
-triangulo:setPosition(300,300,0)
-triangulo:setColor(0.6, 0.2, 0.6, 1)
-
-cena:addObject(triangulo)
-
-Engine.setScene(cena)
+Engine.setScene(scene)

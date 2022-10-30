@@ -3,46 +3,42 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "PlaneTerrain.h"
-#include "Log.h"
 #include "Model.h"
-#include "math/Angle.h"
-#include <math.h>
-#include "DirectionalLight.h"
-#include "Text.h"
+#include "SkyBox.h"
+#include "Light.h"
 
 using namespace Supernova;
 
-void onUpdate();
-void onKeyDown(int key);
+void onKeyDown(int key, bool repeat, int mods);
 void onTouchStart(int pointer, float x, float y);
 
-Camera camera;
-Scene cena;
-PlaneTerrain plano(2000, 2000);
-Model carro("CesiumMan.glb");
-SkyBox sky;
+Scene scene;
 
+Camera camera(&scene);
+PlaneTerrain terrain(&scene);
+Model model(&scene);
+SkyBox sky(&scene);
 
-float rotacao = 0;
 
 void init(){
-    Engine::setScalingMode(Scaling::FITWIDTH);
-    Engine::setCanvasSize(1000, 480);
+    scene.setAmbientLight(0.2);
+    scene.setCamera(camera.getEntity());
 
-    cena.setAmbientLight(0.5);
+    camera.setPosition(0, 7, -20);
 
-    camera.setPosition(0, 50, -200);
+    terrain.create(200, 200);
+    terrain.setTexture("ground.png");
+    terrain.setPosition(-100,0,-100);
 
-    plano.setTexture("ground.png");
-    plano.setPosition(-1000,0,-1000);
+    model.loadModel("CesiumMan.glb");
+    model.setScale(4);
+    model.setRotation(-90,0,0);
+    model.getAnimation(0).setLoop(true);
 
-    carro.setScale(40);
-    carro.setRotation(-90,0,0);
-
-    DirectionalLight* sol = new DirectionalLight();
-    sol->setDirection(0,-0.7,-0.8);
-    sol->setShadow(true);
-    cena.addObject(sol);
+    Light* sun = new Light(&scene);
+    sun->setType(LightType::DIRECTIONAL);
+    sun->setDirection(0,-0.7, 0.8);
+    sun->setShadows(true);
 
     sky.setTextureFront("ely_hills/hills_lf.tga");
     sky.setTextureBack("ely_hills/hills_rt.tga");
@@ -51,32 +47,19 @@ void init(){
     sky.setTextureUp("ely_hills/hills_up.tga");
     sky.setTextureDown("ely_hills/hills_dn.tga");
 
-    cena.addObject(&plano);
-    cena.addObject(&carro);
-    cena.addObject(&sky);
-    cena.setCamera(&camera);
+    Engine::setScalingMode(Scaling::FITWIDTH);
+    Engine::setCanvasSize(1000, 480);
+    Engine::setScene(&scene);
+    Engine::setCallTouchInMouseEvent(true);
 
-    Engine::setScene(&cena);
-
-    Engine::onUpdate = onUpdate;
     Engine::onKeyDown = onKeyDown;
     Engine::onTouchStart = onTouchStart;
 }
 
-void onUpdate(){
-    rotacao = rotacao + 1;
-    if (rotacao > 360) rotacao = rotacao - 360;
-    if (rotacao < 0) rotacao = 360 + rotacao;
-
-    carro.setRotation(-90, rotacao, 0);
-
-    camera.setView(carro.getPosition().x,carro.getPosition().y+30, carro.getPosition().z);
-}
-
-void onKeyDown(int key){
-    carro.getAnimation(0)->run();
+void onKeyDown(int key, bool repeat, int mods){
+    model.getAnimation(0).start();
 }
 
 void onTouchStart(int pointer, float x, float y){
-    carro.getAnimation(0)->run();
+    model.getAnimation(0).start();
 }

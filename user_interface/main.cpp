@@ -3,12 +3,8 @@
 
 #include "Button.h"
 #include "TextEdit.h"
-#include "Sprite.h"
-#include "Texture.h"
-#include "Lines.h"
-#include "Log.h"
-#include "FileData.h"
-#include "UserSettings.h"
+#include "Image.h"
+#include "Polygon.h"
 
 #include <string>
 #include <sstream>
@@ -17,68 +13,60 @@
 using namespace Supernova;
 
 Scene scene;
-Scene scene2;
-Button button;
-TextEdit textedit;
-Lines lines;
-Image imagem;
-Texture textura;
+Button button(&scene);
+TextEdit textedit(&scene);
+Image image(&scene);
+Text text(&scene);
+
+//Scene scene2;
+//Button button2(&scene2);
 
 void onPress();
-void onTouchStart(int pointer, float x, float y);
 
 void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
 
-    button.setTexture("Button_Normal.png");
-    button.setTexturePressed("Button_Disable.png");
+    button.setTexture("button_normal.png");
+    button.setTexturePressed("button_disable.png");
     button.setPosition(100, 200, 0);
     button.setSize(400, 400);
-    button.setBorder(16);
+    button.setMargin(5);
     //button.setLabelFont("arial.ttf");
-    button.setLabelText("Eduardo");
-    button.setLabelSize(80);
+    button.setLabel("Button");
+    button.setFontSize(80);
     button.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
+    button.getComponent<ButtonComponent>().onPress = onPress;
 
-    //textedit.setTextFont("arial.ttf");
-    textedit.setTextColor(Vector4(0.4, 0.4, 0.4, 1.0));
     textedit.setPosition(300, 100, 0);
     textedit.setTexture("textedit.png");
-    textedit.setBorder(8);
+    textedit.setMargin(5);
     textedit.setSize(200, 50);
     textedit.setText("");
 
-    lines.setPosition(Vector3(300,300,0));
-    lines.setColor(0.6, 0.2, 0.6, 1);
-    lines.addLine(Vector3(0,0,0),Vector3(300,300,0));
+    //image.setTexture(&scene2.getFramebuffer());
+    image.setTexture("tile.png");
+    image.setPosition(550,100,0);
+    image.setSize(400,400);
 
-    //scene2.addObject(&textedit);
-    //scene2.setTextureFrame(&textura);
+    //scene2.setBackgroundColor(0.5, 0.5, 0.5);
+    //scene2.setRenderToTexture(true);
 
-    //scene.addObject(&scene2);
-
-    //imagem.setTexture(&textura);
-    //imagem.setPosition(100,100);
-    //imagem.setInvertTexture(true);
-    //scene.addObject(&imagem);
-
-    scene.addObject(&textedit);
-    scene.addObject(&button);
-    //scene.addObject(&lines);
+    //button2.setTexture("button_normal.png");
+    //button2.setTexturePressed("button_disable.png");
+    //button2.setPosition(100, 200, 0);
+    //button2.setSize(400, 400);
+    //button2.setMargin(5);
+    //button2.setLabel("Button2");
+    //button2.setFontSize(80);
+    //button2.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
 
     Engine::setScene(&scene);
-    button.onUp = onPress;
+    //Engine::addSceneLayer(&scene2);
 
-    Engine::onTouchStart = onTouchStart;
-
-}
-
-void onTouchStart(int pointer, float x, float y){
-    Log::Debug("TouchStart");
 }
 
 void onPress(){
     //text.setText("Eduardo Dória Lima");
-    button.setPosition(150, 300);
+    button.setPosition(150, 300, 0);
 }

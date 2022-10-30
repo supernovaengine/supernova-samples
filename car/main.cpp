@@ -1,99 +1,72 @@
 #include "Supernova.h"
 
 #include "Scene.h"
-#include "Polygon.h"
-#include "Cube.h"
 #include "Camera.h"
 #include "PlaneTerrain.h"
 #include "Model.h"
-#include "math/Angle.h"
-#include <math.h>
-#include "SpotLight.h"
-#include "PointLight.h"
-#include "DirectionalLight.h"
-#include "Particles.h"
-#include "Image.h"
 #include "Text.h"
+#include "SkyBox.h"
 #include "Input.h"
+#include "Angle.h"
+#include "Light.h"
+#include "Audio.h"
+
 
 using namespace Supernova;
 
-void onUpdate();
-void onKeyDown(int key);
-void onKeyUp(int key);
-void onTouchStart(int pointer, float x, float y);
-void onTouchDrag(int pointer, float x, float y);
-void onTouchEnd(int pointer, float x, float y);
+Scene scene;
+Scene uiscene;
 
-Camera camera;
-Scene cena;
-Scene cena2;
-PlaneTerrain plano(2000,2000);
-Model carro("jeep/Jeep.obj");
-Model casa("old-house/old-house.obj");
-SkyBox sky;
-Text texto;
-//Cube cubo (20,20,20);
-Vector2 analogCenter;
-Fog fog;
+Camera camera(&scene);
+PlaneTerrain terrain(&scene);
+Model car(&scene);
+Model house(&scene);
+SkyBox sky(&scene);
+Text text(&uiscene);
+Audio engine(&scene);
 
-
-float curva = 0;
-float velocidade = 0;
-float rotacao = 0;
+float curve = 0;
+float speed = 0;
+float rotation = 0;
 
 bool up, down, left, right;
 
+void onUpdate();
+
 void init(){
-    printf("entrou em cpp\n");
 
-    //Engine::setScalingMode(S_SCALING_LETTERBOX);
-    Engine::setCanvasSize(1000, 480);
+    scene.setAmbientLight(0.5);
+    scene.setBackgroundColor(0.8, 0.8, 0.8);
 
-    cena.setAmbientLight(0.5);
+    scene.setCamera(camera.getEntity());
 
-    camera.setPosition(0, 50, 200);
-    //camera.setPosition(0, 10, -25);
-    //camera.setView(0,10,0);
-    //camera.attachToObject(&carro);
+    scene.setFogEnabled(true);
+    scene.getFog().setType(FogType::LINEAR);
+    scene.getFog().setLinearStart(30);
+    scene.getFog().setLinearEnd(100);
 
-    //carro.loadTextureFile("block.png");
-    //carro.setCenter(0,0,5);
+    camera.setPosition(0, 5, 20);
 
-    casa.setScale(10);
-    casa.setRotation(-90,180,0);
-    casa.setPosition(60,0,60);
+    house.loadModel("old-house/old-house.obj");
+    house.setRotation(-1,2,0);
+    house.setRotation(-90,180,0);
+    house.setPosition(6,0,6);
 
-    plano.setTexture("road.png");
-    plano.setPosition(-1000,0,-1000);
+    terrain.create(200, 200);
+    terrain.setTexture("road.png");
+    terrain.setPosition(-100,0,-100);
 
-    carro.setScale(5);
-    //carro.setTexture("Jeep_outside_d.png");
-    carro.setCenter(0,0,-5);
+    car.loadModel("jeep/Jeep.obj");
+    car.setScale(0.5);
+    car.addChild(&engine);
 
-    fog.setLinearStart(10);
-    fog.setLinearEnd(100);
-    //cena.setFog(&fog);
-
-    SpotLight* farol = new SpotLight();
-    farol->setSpotAngle(80);
-    farol->setPosition(0,5,8);
-    farol->setTarget(0,0,30);
-    farol->setPower(100);
-    farol->setShadowBias(0.00003);
-    farol->setShadow(true);
-    carro.addObject(farol);
-
-    PointLight* luz = new PointLight();
-    luz->setPosition(20,40,8);
-    luz->setPower(100);
-    luz->setShadow(true);
-    cena.addObject(luz);
-
-    DirectionalLight* sol = new DirectionalLight();
-    sol->setDirection(0,-0.7,0.3);
-    sol->setShadow(true);
-    //cena.addObject(sol);
+    engine.loadAudio("engine.wav");
+    engine.set3DSound(true);
+    engine.setLopping(true);
+    engine.setDopplerFactor(10.0);
+    engine.setMinMaxDistance(1, 100);
+    engine.setAttenuationModel(AudioAttenuation::LINEAR_DISTANCE);
+    engine.play();
 
     sky.setTextureFront("ely_hills/hills_lf.tga");
     sky.setTextureBack("ely_hills/hills_rt.tga");
@@ -101,144 +74,68 @@ void init(){
     sky.setTextureRight("ely_hills/hills_ft.tga");
     sky.setTextureUp("ely_hills/hills_up.tga");
     sky.setTextureDown("ely_hills/hills_dn.tga");
+    sky.setAlpha(0.2);
 
-    //cubo.setTexture("block.png");
-    //cubo.setPosition(30,0,30);
-    //cena.addObject(&cubo);
+    Light* carlight = new Light(&scene);
+    carlight->setType(LightType::SPOT);
+    carlight->setConeAngle(80, 100);
+    carlight->setPosition(0, 5, 8);
+    carlight->setDirection(0, 0, 30);
+    carlight->setIntensity(50);
+    carlight->setShadows(true);
+    car.addChild(carlight);
 
-    cena.addObject(&plano);
-    cena.addObject(&carro);
-    cena.addObject(&casa);
-    cena.addObject(&sky);
+    Light* sun = new Light(&scene);
+    sun->setType(LightType::DIRECTIONAL);
+    sun->setDirection(0, -0.4, 0.6);
+    sun->setShadows(true);
 
-    texto.setText("");
-    texto.setPosition(100, 100, 0);
-    //texto.setWidth(200);
-    cena2.addObject(&texto);
-
-    cena.addObject(&cena2);
-    cena.setCamera(&camera);
-
-    Engine::setUpdateTime(20);
-
-    Engine::setScene(&cena);
+    text.setPosition(100, 100, 0);
+    
+    Engine::setScene(&scene);
+    Engine::addSceneLayer(&uiscene);
 
     Engine::onUpdate = onUpdate;
-    Engine::onKeyDown = onKeyDown;
-    Engine::onTouchStart = onTouchStart;
-    Engine::onTouchDrag = onTouchDrag;
-    Engine::onTouchEnd = onTouchEnd;
-    Engine::onKeyUp = onKeyUp;
 }
 
 void onUpdate(){
 
-    texto.setText(std::to_string(Engine::getFramerate()).c_str());
+    text.setText(std::to_string(Engine::getFramerate()).c_str());
 
-    if (up){
-        velocidade += 0.3;
-    }else if (down){
-        velocidade -= 0.3;
+    if (Input::isKeyPressed(S_KEY_UP)){
+        speed += 0.1;
+    }else if (Input::isKeyPressed(S_KEY_DOWN)){
+        speed -= 0.1;
     }
-    velocidade *= 0.98;
+    speed *= 0.95;
 
-    if (left){
-        if (curva < 3)
-            curva += 0.4;
-    }else if (right){
-        if (curva > -3)
-            curva -= 0.4;
+
+printf("oiii %f\n", 1.0 + (abs(speed)* 0.5));
+
+engine.setVolume(1.0 + (abs(speed) * 0.5));
+engine.setSpeed(1.0 + (abs(speed) * 0.5));
+
+
+    if (Input::isKeyPressed(S_KEY_LEFT)){
+        if (curve < 3)
+            curve += 0.4;
+    }else if (Input::isKeyPressed(S_KEY_RIGHT)){
+        if (curve > -3)
+            curve -= 0.4;
     }else{
-        curva = 0;
+        curve = 0;
     }
 
-    if (Input::isKeyPressed(S_KEY_B)){
-        printf("testando B\n");
-    }
-    if (Input::isKeyPressed(S_KEY_A)){
-        printf("testando A\n");
-        printf("MousePosition %f %f\n", Input::getMousePosition().x, Input::getMousePosition().y);
-    }
+    rotation += curve;
+    if (rotation > 360)
+        rotation = rotation - 360;
+    if (rotation < 0)
+        rotation = 360 + rotation;
 
-    rotacao = rotacao + curva;
-    if (rotacao > 360)    rotacao = rotacao - 360;
-    if (rotacao < 0)    rotacao = 360 + rotacao;
+    Vector3 vDir(cos(Angle::degToRad(rotation-90)), 0, -sin(Angle::degToRad(rotation-90)));
 
-    Vector3 vDirecao(cos(Angle::degToRad(rotacao-90)), 0, -sin(Angle::degToRad(rotacao-90)));
+    car.setRotation(0,rotation,0);
+    car.setPosition(car.getPosition() + (vDir*speed));
 
-    carro.setRotation(0,rotacao,0);
-    carro.setPosition(carro.getPosition() + (vDirecao*velocidade));
-
-    camera.setView(carro.getPosition());
-}
-
-void onKeyDown(int key){
-
-    if (key == S_KEY_LEFT){
-        left = true;
-    }
-    if (key == S_KEY_RIGHT){
-        right = true;
-    }
-    if (key == S_KEY_UP){
-        up = true;
-    }
-    if (key == S_KEY_DOWN){
-        down = true;
-    }
-}
-
-void onKeyUp(int key){
-
-    if (key == S_KEY_LEFT){
-        left = false;
-    }
-    if (key == S_KEY_RIGHT){
-        right = false;
-    }
-    if (key == S_KEY_UP){
-        up = false;
-    }
-    if (key == S_KEY_DOWN){
-        down = false;
-    }
-}
-
-void onTouchStart(int pointer, float x, float y){
-    analogCenter.x = x;
-    analogCenter.y = y;
-}
-
-void onTouchDrag(int pointer, float x, float y){
-
-    left = false;
-    right = false;
-    up = false;
-    down = false;
-
-    if ((x - analogCenter.x) > 40){
-        right = true;
-    }
-
-    if ((analogCenter.x - x) > 40){
-        left = true;
-    }
-
-    if ((analogCenter.y - y) > 40){
-        up = true;
-    }
-
-    if ((y - analogCenter.y) > 40){
-        down = true;
-    }
-}
-
-void onTouchEnd(int pointer, float x, float y){
-    analogCenter.x = 0;
-    analogCenter.y = 0;
-
-    left = false;
-    right = false;
-    up = false;
-    down = false;
+    //camera.setView(car.getPosition());
 }

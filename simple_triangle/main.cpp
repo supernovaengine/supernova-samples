@@ -1,22 +1,19 @@
 #include "Supernova.h"
+using namespace Supernova;
 
-#include "Scene.h"
 #include "Polygon.h"
 
-using namespace Supernova;
-Polygon triangulo;
-Scene cena;
+Scene scene;
+Polygon triangle(&scene);
 
 void init(){
+    triangle.addVertex(0, -100);
+    triangle.addVertex(-50, 50);
+    triangle.addVertex(50, 50);
+
+    triangle.setPosition(Vector3(300,300,0));
+    triangle.setColor(0.6, 0.2, 0.6, 1);
+
     Engine::setCanvasSize(1000,480);
-
-    triangulo.addVertex(Vector3(0, -100, 0));
-    triangulo.addVertex(Vector3(-50, 50, 0));
-    triangulo.addVertex(Vector3(50, 50, 0));
-
-    triangulo.setPosition(Vector3(300,300,0));
-    triangulo.setColor(0.6, 0.2, 0.6, 1);
-    cena.addObject(&triangulo);
-
-    Engine::setScene(&cena);
+    Engine::setScene(&scene);
 }
