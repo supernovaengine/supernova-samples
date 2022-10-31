@@ -28,7 +28,7 @@ void onButton_save(){
 void onButton_read(){
     Log::verbose("Read file path: %s", FileData::getSystemPath("data://test.txt").c_str());
     File* file = new File();
-    if (file->open("data://test.txt")==FileErrors::NO_ERROR) {
+    if (file->open("data://test.txt")==FileErrors::FILEDATA_OK) {
         Log::verbose("%s", file->readString().c_str());
     }
     delete file;

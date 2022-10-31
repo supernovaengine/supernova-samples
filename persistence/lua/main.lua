@@ -17,7 +17,7 @@ end
 function onButton_read()
     Log.verbose("Read file path: " .. FileData.getSystemPath("data://test.txt"))
     file = File()
-    if (file:open("data://test.txt") == FileErrors.NO_ERROR) then
+    if (file:open("data://test.txt") == FileErrors.FILEDATA_OK) then
         Log.verbose(file:readString(file:length()))
     end
 end
