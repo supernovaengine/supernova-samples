@@ -39,10 +39,10 @@ void init(){
     sprite2.setPosition(400,20,0);
     sprite2.setSize(200,200);
 
-    //Engine::setScene(&scene);
-    //Engine::setCallTouchInMouseEvent(true);
+    Engine::setScene(&scene);
+    Engine::setCallTouchInMouseEvent(true);
 
-    //Engine::onTouchStart = onTouchStart;
+    Engine::onTouchStart = onTouchStart;
 }
 
 void onTouchStart(int pointer, float x, float y) {

@@ -107,6 +107,6 @@ void init(){
     button_storage_read.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button_storage_read.getComponent<ButtonComponent>().onRelease = onButton_storage_read;
 
-    //Engine::setCanvasSize(1000,480);
-    //Engine::setScene(&scene);
+    Engine::setCanvasSize(1000,480);
+    Engine::setScene(&scene);
 }
