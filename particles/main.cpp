@@ -48,7 +48,7 @@ void init(){
     //partianim.setRotationInitializer(90);
     //partianim.setRotationModifier(1, 5, 0, 360);
 
-    //Engine::setScene(&scene);
+    Engine::setScene(&scene);
 
-    //partianim.start();
+    partianim.start();
 }
