@@ -109,9 +109,6 @@ void onUpdate(){
     }
     speed *= 0.95;
 
-
-printf("oiii %f\n", 1.0 + (abs(speed)* 0.5));
-
 engine.setVolume(1.0 + (abs(speed) * 0.5));
 engine.setSpeed(1.0 + (abs(speed) * 0.5));
 
