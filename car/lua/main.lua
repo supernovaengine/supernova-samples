@@ -6,6 +6,7 @@ car = Model(scene)
 house = Model(scene)
 sky = SkyBox(scene)
 text = Text(scene)
+carengine = Audio(scene)
 
 curve = 0
 speed = 0
@@ -23,6 +24,9 @@ function onUpdate()
         speed = speed - 0.1
     end
     speed = speed * 0.95
+
+    carengine.volume = 1.0 + (math.abs(speed) * 0.5)
+    carengine.speed = 1.0 + (math.abs(speed) * 0.5)
 
     if (Input.isKeyPressed(Input.KEY_LEFT)) then
         if (curve < 3) then
@@ -76,6 +80,15 @@ terrain:setPosition(-100,0,-100)
 
 car:loadModel("jeep/Jeep.obj")
 car:setScale(0.5)
+car:addChild(carengine)
+
+carengine:loadAudio("engine.wav")
+carengine.sound3D = true
+carengine.lopping = true
+carengine.dopplerFactor = 10.0
+carengine:setMinMaxDistance(1, 100)
+carengine.attenuationModel = AudioAttenuation.LINEAR_DISTANCE
+carengine:play()
 
 sky:setTextureFront("ely_hills/hills_lf.tga")
 sky:setTextureBack("ely_hills/hills_rt.tga")
@@ -83,6 +96,7 @@ sky:setTextureLeft("ely_hills/hills_bk.tga")
 sky:setTextureRight("ely_hills/hills_ft.tga")
 sky:setTextureUp("ely_hills/hills_up.tga")
 sky:setTextureDown("ely_hills/hills_dn.tga")
+sky.alpha = 0.2
 
 carlight = Light(scene)
 carlight.type = LightType.SPOT

@@ -23,7 +23,7 @@ Model car(&scene);
 Model house(&scene);
 SkyBox sky(&scene);
 Text text(&uiscene);
-Audio engine(&scene);
+Audio carengine(&scene);
 
 float curve = 0;
 float speed = 0;
@@ -58,15 +58,15 @@ void init(){
 
     car.loadModel("jeep/Jeep.obj");
     car.setScale(0.5);
-    car.addChild(&engine);
+    car.addChild(&carengine);
 
-    engine.loadAudio("engine.wav");
-    engine.set3DSound(true);
-    engine.setLopping(true);
-    engine.setDopplerFactor(10.0);
-    engine.setMinMaxDistance(1, 100);
-    engine.setAttenuationModel(AudioAttenuation::LINEAR_DISTANCE);
-    engine.play();
+    carengine.loadAudio("engine.wav");
+    carengine.setSound3D(true);
+    carengine.setLopping(true);
+    carengine.setDopplerFactor(10.0);
+    carengine.setMinMaxDistance(1, 100);
+    carengine.setAttenuationModel(AudioAttenuation::LINEAR_DISTANCE);
+    carengine.play();
 
     sky.setTextureFront("ely_hills/hills_lf.tga");
     sky.setTextureBack("ely_hills/hills_rt.tga");
@@ -109,9 +109,8 @@ void onUpdate(){
     }
     speed *= 0.95;
 
-engine.setVolume(1.0 + (abs(speed) * 0.5));
-engine.setSpeed(1.0 + (abs(speed) * 0.5));
-
+    carengine.setVolume(1.0 + (abs(speed) * 0.5));
+    carengine.setSpeed(1.0 + (abs(speed) * 0.5));
 
     if (Input::isKeyPressed(S_KEY_LEFT)){
         if (curve < 3)
