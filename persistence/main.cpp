@@ -71,7 +71,7 @@ void init(){
     button_save.setTexturePressed("/Button_Disable.png");
     button_save.setPosition(100, 100, 0);
     button_save.setSize(200, 100);
-    button_save.setMargin(5);
+    button_save.setPatchMargin(5);
     button_save.setLabel("Save");
     button_save.setFontSize(40);
     button_save.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
@@ -81,7 +81,7 @@ void init(){
     button_read.setTexturePressed("Button_Disable.png");
     button_read.setPosition(500, 100, 0);
     button_read.setSize(200, 100);
-    button_read.setMargin(5);
+    button_read.setPatchMargin(5);
     button_read.setLabel("Read");
     button_read.setFontSize(40);
     button_read.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
@@ -91,7 +91,7 @@ void init(){
     button_storage_save.setTexturePressed("Button_Disable.png");
     button_storage_save.setPosition(100, 300, 0);
     button_storage_save.setSize(300, 100);
-    button_storage_save.setMargin(5);
+    button_storage_save.setPatchMargin(5);
     button_storage_save.setLabel("Save user setting");
     button_storage_save.setFontSize(40);
     button_storage_save.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
@@ -101,7 +101,7 @@ void init(){
     button_storage_read.setTexturePressed("Button_Disable.png");
     button_storage_read.setPosition(500, 300, 0);
     button_storage_read.setSize(300, 100);
-    button_storage_read.setMargin(5);
+    button_storage_read.setPatchMargin(5);
     button_storage_read.setLabel("Read user setting");
     button_storage_read.setFontSize(40);
     button_storage_read.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));

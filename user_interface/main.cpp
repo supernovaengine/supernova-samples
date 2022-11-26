@@ -31,7 +31,7 @@ void init(){
     button.setTexturePressed("button_disable.png");
     button.setPosition(100, 200, 0);
     button.setSize(400, 400);
-    button.setMargin(5);
+    button.setPatchMargin(5);
     //button.setLabelFont("arial.ttf");
     button.setLabel("Button");
     button.setFontSize(80);
@@ -40,7 +40,7 @@ void init(){
 
     textedit.setPosition(300, 100, 0);
     textedit.setTexture("textedit.png");
-    textedit.setMargin(5);
+    textedit.setPatchMargin(5);
     textedit.setSize(200, 50);
     textedit.setText("");
 
@@ -56,7 +56,7 @@ void init(){
     //button2.setTexturePressed("button_disable.png");
     //button2.setPosition(100, 200, 0);
     //button2.setSize(400, 400);
-    //button2.setMargin(5);
+    //button2.setPatchMargin(5);
     //button2.setLabel("Button2");
     //button2.setFontSize(80);
     //button2.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
