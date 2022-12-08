@@ -91,7 +91,7 @@ void init(){
     //window.getComponent<UIComponent>().texture.setWrapU(TextureWrap::CLAMP_TO_EDGE);
     window.setPosition(0,0,0);
     window.setPatchMargin(10, 10, 50, 10);
-    window.setSize(600,600);
+    window.setSize(600,400);
     window.setName("window");
     window.setAnchorPreset(AnchorPreset::CENTER);
 
