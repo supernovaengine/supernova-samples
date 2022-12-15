@@ -11,4 +11,5 @@ This repository contains samples projects of [Supernova Engine's website](http:/
 * Cesium Man by Cesium (https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/CesiumMan) - CC 4.0
 * Cute Dino (https://www.gameart2d.com/free-dino-sprites.html) - Public Domain
 * Motorcycle engine working (https://mixkit.co/free-sound-effects/engine/) - Mixkit License
-* Tiny Texture Pack https://screamingbrainstudios.itch.io/tiny-texture-pack - Public Domain
+* Tiny Texture Pack (https://screamingbrainstudios.itch.io/tiny-texture-pack) - Public Domain
+* Tree Collection v2.6 (https://opengameart.org/content/tree-collection-v26-bleeds-game-art) - CC-BY 3.0
