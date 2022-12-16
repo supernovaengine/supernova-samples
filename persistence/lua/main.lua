@@ -27,7 +27,7 @@ function onButton_storage_save()
 
     UserSettings.setBoolForKey("key1", true)
     UserSettings.setIntegerForKey("key2", 55)
-    UserSettings.setLongForKey("key3", 5454545454545454545)
+    UserSettings.setLongForKey("key3", 545254545)
     UserSettings.setFloatForKey("key4", 23.54)
     UserSettings.setDoubleForKey("key5", 23434.645454)
     UserSettings.setStringForKey("key6", "testing string")
