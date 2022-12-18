@@ -133,5 +133,5 @@ void onUpdate(){
     car.setRotation(0,rotation,0);
     car.setPosition(car.getPosition() + (vDir*speed));
 
-    //camera.setView(car.getPosition());
+    camera.setView(car.getPosition());
 }
