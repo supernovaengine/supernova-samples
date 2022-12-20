@@ -84,10 +84,16 @@ void init(){
 }
 
 void onUpdate(){
-    if (Input::isKeyPressed(S_KEY_UP)){
+    if (Input::isKeyPressed(S_KEY_UP) || Input::isKeyPressed(S_KEY_W)){
         camera.walkForward(1);
-    }else if (Input::isKeyPressed(S_KEY_DOWN)){
+    }else if (Input::isKeyPressed(S_KEY_DOWN) || Input::isKeyPressed(S_KEY_S)){
         camera.walkForward(-1);
+    }
+
+    if (Input::isKeyPressed(S_KEY_A)){
+        camera.slide(-1);
+    }else if (Input::isKeyPressed(S_KEY_D)){
+        camera.slide(1);
     }
 
     if (Input::isKeyPressed(S_KEY_LEFT)){
