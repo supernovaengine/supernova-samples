@@ -2,7 +2,6 @@
 
 #include "Scene.h"
 #include "Camera.h"
-#include "PlaneTerrain.h"
 #include "Model.h"
 #include "SkyBox.h"
 #include "Light.h"
@@ -23,7 +22,7 @@ Vector2 lastTouchPos;
 Scene scene;
 
 Camera camera(&scene);
-PlaneTerrain terrain(&scene);
+Mesh terrain(&scene);
 SkyBox sky(&scene);
 
 Sprite tree1(&scene);
@@ -38,7 +37,7 @@ void init(){
 
     camera.setPosition(0, 7, 40);
 
-    terrain.create(200, 200);
+    terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
     terrain.setPosition(-100,0,-100);
 

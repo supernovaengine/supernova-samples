@@ -2,7 +2,6 @@
 
 #include "Scene.h"
 #include "Camera.h"
-#include "PlaneTerrain.h"
 #include "Model.h"
 #include "SkyBox.h"
 #include "Light.h"
@@ -26,7 +25,7 @@ Scene scene;
 
 Model model(&scene);
 Camera camera(&scene);
-PlaneTerrain terrain(&scene);
+Mesh terrain(&scene);
 SkyBox sky(&scene);
 Light sun(&scene);
 
@@ -44,7 +43,7 @@ void init(){
     sun.setType(LightType::DIRECTIONAL);
     sun.setDirection(0, -0.4, -0.6);
 
-    terrain.create(200, 200);
+    terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
     terrain.setPosition(-100,0,-100);
     terrain.setName("terrain");

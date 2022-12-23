@@ -1,7 +1,7 @@
 scene = Scene()
 
 camera = Camera(scene)
-terrain = PlaneTerrain(scene)
+terrain = Mesh(scene)
 car = Model(scene)
 house = Model(scene)
 sky = SkyBox(scene)
@@ -74,7 +74,7 @@ house:setRotation(-1,2,0)
 house:setRotation(-90,180,0)
 house:setPosition(6,0,6)
 
-terrain:create(200, 200)
+terrain:createPlane(200, 200)
 terrain:setTexture("road.png")
 terrain:setPosition(-100,0,-100)
 

@@ -1,7 +1,7 @@
 scene = Scene()
 
 camera = Camera(scene)
-terrain = PlaneTerrain(scene)
+terrain = Mesh(scene)
 model = Model(scene)
 sky = SkyBox(scene)
 sun = Light(scene);
@@ -19,7 +19,7 @@ scene.camera = camera.entity
 
 camera:setPosition(0, 7, -20)
 
-terrain:create(200, 200)
+terrain:createPlane(200, 200)
 terrain:setTexture("ground.png")
 terrain:setPosition(-100,0,-100)
 

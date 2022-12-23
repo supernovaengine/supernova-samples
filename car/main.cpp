@@ -2,7 +2,6 @@
 
 #include "Scene.h"
 #include "Camera.h"
-#include "PlaneTerrain.h"
 #include "Model.h"
 #include "Text.h"
 #include "SkyBox.h"
@@ -18,7 +17,7 @@ Scene scene;
 Scene uiscene;
 
 Camera camera(&scene);
-PlaneTerrain terrain(&scene);
+Mesh terrain(&scene);
 Model car(&scene);
 Model house(&scene);
 SkyBox sky(&scene);
@@ -52,7 +51,7 @@ void init(){
     house.setRotation(-90,180,0);
     house.setPosition(6,0,6);
 
-    terrain.create(200, 200);
+    terrain.createPlane(200, 200);
     terrain.setTexture("road.png");
     terrain.setPosition(-100,0,-100);
 
