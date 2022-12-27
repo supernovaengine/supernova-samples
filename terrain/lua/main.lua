@@ -10,6 +10,7 @@ camera = Camera(scene)
 terrain = Terrain(scene)
 sun = Light(scene)
 
+textcontainer = Container(uiscene)
 text = Text(uiscene)
 text2 = Text(uiscene)
 text3 = Text(uiscene)
@@ -102,11 +103,11 @@ sun:setType(LightType.DIRECTIONAL)
 sun:setDirection(0.0, -0.3, -0.8)
 sun:setShadows(true)
 
-text.text = "Texto";
-text:setPosition(100, 100, 0);
-text2:setPosition(100, 150, 0);
-text3:setPosition(100, 200, 0);
-text4:setPosition(100, 250, 0);
+textcontainer.anchorPreset = AnchorPreset.TOP_LEFT
+textcontainer:addChild(text)
+textcontainer:addChild(text2)
+textcontainer:addChild(text3)
+textcontainer:addChild(text4)
 
 Engine.setCanvasSize(1000,480)
 Engine.setScene(scene)

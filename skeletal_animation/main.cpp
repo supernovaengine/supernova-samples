@@ -5,6 +5,7 @@
 #include "Model.h"
 #include "SkyBox.h"
 #include "Light.h"
+#include "Text.h"
 
 using namespace Supernova;
 
@@ -18,10 +19,16 @@ Mesh terrain(&scene);
 Model model(&scene);
 SkyBox sky(&scene);
 
+Scene uiscene;
+Text text(&uiscene);
+
 
 void init(){
     scene.setAmbientLight(0.2);
     scene.setCamera(camera.getEntity());
+
+    text.setText("Click on screen to start");
+    text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     camera.setPosition(0, 7, -20);
 
@@ -48,6 +55,7 @@ void init(){
     Engine::setScalingMode(Scaling::FITWIDTH);
     Engine::setCanvasSize(1000, 480);
     Engine::setScene(&scene);
+    Engine::addSceneLayer(&uiscene);
     Engine::setCallTouchInMouseEvent(true);
 
     Engine::onKeyDown = onKeyDown;

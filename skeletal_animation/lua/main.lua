@@ -4,7 +4,10 @@ camera = Camera(scene)
 terrain = Mesh(scene)
 model = Model(scene)
 sky = SkyBox(scene)
-sun = Light(scene);
+sun = Light(scene)
+
+uiscene = Scene()
+text = Text(uiscene)
 
 function onKeyDown(key, rep, mods)
     model:getAnimation(0):start()
@@ -16,6 +19,9 @@ end
 
 scene.ambientLightFactor = 0.2
 scene.camera = camera.entity
+
+text.text = "Click on screen to start"
+text.anchorPreset = AnchorPreset.CENTER_TOP
 
 camera:setPosition(0, 7, -20)
 
@@ -40,7 +46,8 @@ sky:setTextureDown("ely_hills/hills_dn.tga")
 
 Engine.scalingMode = Scaling.FITWIDTH 
 Engine.setCanvasSize(1000, 480)
-Engine.setScene(scene);
+Engine.setScene(scene)
+Engine.addSceneLayer(uiscene)
 Engine.callTouchInMouseEvent = true
 
 Engine.onKeyDown = onKeyDown

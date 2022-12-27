@@ -34,7 +34,7 @@ function onTouchStart(pointer, x, y)
 end
 
 
-text.text = "Click on the screen to start"
+text.text = "Click on screen to start"
 text.anchorPreset = AnchorPreset.CENTER_TOP
 
 polygon:addVertex(0, 0);

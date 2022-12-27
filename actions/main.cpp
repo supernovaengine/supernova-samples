@@ -34,7 +34,7 @@ void onTouchStart(int pointer, float x, float y);
 
 void init(){
 
-    text.setText("Click on the screen to start");
+    text.setText("Click on screen to start");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     polygon.addVertex(0, 0);

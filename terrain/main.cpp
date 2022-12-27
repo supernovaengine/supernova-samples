@@ -8,6 +8,7 @@ using namespace Supernova;
 #include "Camera.h"
 #include "Light.h"
 #include "Text.h"
+#include "Container.h"
 #include "Input.h"
 #include "System.h"
 
@@ -23,6 +24,7 @@ Camera camera(&scene);
 Terrain terrain(&scene);
 Light sun(&scene);
 
+Container textcontainer(&uiscene);
 Text text(&uiscene);
 Text text2(&uiscene);
 Text text3(&uiscene);
@@ -55,11 +57,11 @@ void init(){
     sun.setDirection(0.0f, -0.3, -0.8);
     sun.setShadows(true);
 
-    text.setText("Texto");
-    text.setPosition(100, 100, 0);
-    text2.setPosition(100, 150, 0);
-    text3.setPosition(100, 200, 0);
-    text4.setPosition(100, 250, 0);
+    textcontainer.setAnchorPreset(AnchorPreset::TOP_LEFT);
+    textcontainer.addChild(&text);
+    textcontainer.addChild(&text2);
+    textcontainer.addChild(&text3);
+    textcontainer.addChild(&text4);
 
     Engine::setCanvasSize(1000,480);
     Engine::setScene(&scene);
