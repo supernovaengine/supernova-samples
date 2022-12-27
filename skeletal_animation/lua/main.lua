@@ -1,3 +1,5 @@
+lastTouchPos = Vector2(0, 0)
+
 scene = Scene()
 
 camera = Camera(scene)
@@ -14,16 +16,26 @@ function onKeyDown(key, rep, mods)
 end
 
 function onTouchStart(pointer, x, y)
-    model:getAnimation(0):start()
+    lastTouchPos = Vector2(x, y)
+end
+
+function onTouchMove(pointer, x, y)
+    difX = lastTouchPos.x - x
+    difY = lastTouchPos.y - y
+    lastTouchPos = Vector2(x, y)
+
+    camera:rotatePosition(0.1 * difX)
+    camera:elevatePosition(-0.1 * difY)
 end
 
 scene.ambientLightFactor = 0.2
 scene.camera = camera.entity
 
-text.text = "Click on screen to start"
+text.text = "Press any key to start"
 text.anchorPreset = AnchorPreset.CENTER_TOP
 
 camera:setPosition(0, 7, -20)
+camera:setView(0, 2, 0);
 
 terrain:createPlane(200, 200)
 terrain:setTexture("ground.png")
@@ -35,6 +47,7 @@ model:getAnimation(0).loop = true
 
 sun.type = LightType.DIRECTIONAL
 sun:setDirection(0,-0.7, 0.8)
+sun:setIntensity(10)
 sun:setShadows(true)
 
 sky:setTextureFront("ely_hills/hills_lf.tga")
@@ -52,3 +65,4 @@ Engine.callTouchInMouseEvent = true
 
 Engine.onKeyDown = onKeyDown
 Engine.onTouchStart = onTouchStart
+Engine.onTouchMove = onTouchMove

@@ -11,6 +11,9 @@ using namespace Supernova;
 
 void onKeyDown(int key, bool repeat, int mods);
 void onTouchStart(int pointer, float x, float y);
+void onTouchMove(int pointer, float x, float y);
+
+Vector2 lastTouchPos;
 
 Scene scene;
 
@@ -27,10 +30,11 @@ void init(){
     scene.setAmbientLight(0.2);
     scene.setCamera(camera.getEntity());
 
-    text.setText("Click on screen to start");
+    text.setText("Press any key to start");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     camera.setPosition(0, 7, -20);
+    camera.setView(0, 2, 0);
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
@@ -43,6 +47,7 @@ void init(){
     Light* sun = new Light(&scene);
     sun->setType(LightType::DIRECTIONAL);
     sun->setDirection(0,-0.7, 0.8);
+    sun->setIntensity(10);
     sun->setShadows(true);
 
     sky.setTextureFront("ely_hills/hills_lf.tga");
@@ -60,12 +65,22 @@ void init(){
 
     Engine::onKeyDown = onKeyDown;
     Engine::onTouchStart = onTouchStart;
+    Engine::onTouchMove = onTouchMove;
 }
 
 void onKeyDown(int key, bool repeat, int mods){
     model.getAnimation(0).start();
 }
 
+void onTouchMove(int pointer, float x, float y){
+    float difX = lastTouchPos.x - x;
+    float difY = lastTouchPos.y - y;
+    lastTouchPos = Vector2(x, y);
+
+    camera.rotatePosition(0.1 * difX);
+    camera.elevatePosition(-0.1 * difY);
+}
+
 void onTouchStart(int pointer, float x, float y){
-    model.getAnimation(0).start();
+    lastTouchPos = Vector2(x, y);
 }
