@@ -39,7 +39,6 @@ void init(){
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
-    terrain.setPosition(-100,0,-100);
 
     tree1.setTexture("tree_08_10000.png");
     tree1.setBillboard(true, false, true);

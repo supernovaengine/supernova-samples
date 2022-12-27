@@ -27,7 +27,6 @@ void init(){
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
-    terrain.setPosition(-100,0,-100);
 
     model.loadModel("AnimatedMorphCube.gltf");
     model.setScale(100);

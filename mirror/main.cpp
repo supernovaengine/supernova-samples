@@ -45,7 +45,6 @@ void init(){
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
-    terrain.setPosition(-100,0,-100);
     terrain.setName("terrain");
 
     cameramirror.setPosition(0, 5, 0);

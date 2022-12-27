@@ -76,7 +76,6 @@ house:setPosition(6,0,6)
 
 terrain:createPlane(200, 200)
 terrain:setTexture("road.png")
-terrain:setPosition(-100,0,-100)
 
 car:loadModel("jeep/Jeep.obj")
 car:setScale(0.5)
