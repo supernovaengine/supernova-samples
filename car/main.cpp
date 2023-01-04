@@ -9,6 +9,7 @@
 #include "Angle.h"
 #include "Light.h"
 #include "Audio.h"
+#include "Fog.h"
 
 
 using namespace Supernova;
@@ -23,6 +24,7 @@ Model house(&scene);
 SkyBox sky(&scene);
 Text text(&uiscene);
 Audio carengine(&scene);
+Fog fog(&scene);
 
 float curve = 0;
 float speed = 0;
@@ -39,10 +41,9 @@ void init(){
 
     scene.setCamera(camera.getEntity());
 
-    scene.setFogEnabled(true);
-    scene.getFog().setType(FogType::LINEAR);
-    scene.getFog().setLinearStart(30);
-    scene.getFog().setLinearEnd(100);
+    fog.setType(FogType::LINEAR);
+    fog.setLinearStart(30);
+    fog.setLinearEnd(100);
 
     camera.setPosition(0, 5, 20);
 

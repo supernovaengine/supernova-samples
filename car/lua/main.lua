@@ -7,6 +7,7 @@ house = Model(scene)
 sky = SkyBox(scene)
 text = Text(scene)
 carengine = Audio(scene)
+fog = Fog(scene)
 
 curve = 0
 speed = 0
@@ -62,10 +63,9 @@ scene.camera = camera.entity
 scene.ambientLightFactor = 0.5;
 scene:setBackgroundColor(0.8, 0.8, 0.8);
 
-scene.fogEnabled = true
-scene.fog.type = FogType.LINEAR
-scene.fog.linearStart = 30
-scene.fog.linearEnd = 100
+fog.type = FogType.LINEAR
+fog.linearStart = 30
+fog.linearEnd = 100
 
 camera:setPosition(0, 5, 20)
 
