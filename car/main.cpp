@@ -10,6 +10,7 @@
 #include "Light.h"
 #include "Audio.h"
 #include "Fog.h"
+#include "Shape.h"
 
 
 using namespace Supernova;

@@ -2,9 +2,9 @@
 
 #include "Scene.h"
 #include "Camera.h"
-#include "Mesh.h"
 #include "TimedAction.h"
 #include "Angle.h"
+#include "Shape.h"
 
 using namespace Supernova;
 

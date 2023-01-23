@@ -6,6 +6,7 @@
 #include "SkyBox.h"
 #include "Light.h"
 #include "Text.h"
+#include "Shape.h"
 
 using namespace Supernova;
 

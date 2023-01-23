@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "Input.h"
 #include "Text.h"
+#include "Shape.h"
 
 using namespace Supernova;
 

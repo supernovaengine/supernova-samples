@@ -10,6 +10,7 @@
 #include "Text.h"
 #include "Input.h"
 #include "Angle.h"
+#include "Shape.h"
 
 using namespace Supernova;
 

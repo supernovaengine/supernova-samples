@@ -11,6 +11,7 @@
 #include "Image.h"
 #include "RenderSystem.h"
 #include "Light.h"
+#include "Shape.h"
 
 using namespace Supernova;
 
