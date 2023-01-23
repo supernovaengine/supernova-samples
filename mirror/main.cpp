@@ -25,7 +25,7 @@ Scene scene;
 
 Model model(&scene);
 Camera camera(&scene);
-Mesh terrain(&scene);
+Shape terrain(&scene);
 SkyBox sky(&scene);
 Light sun(&scene);
 

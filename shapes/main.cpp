@@ -18,11 +18,11 @@ Vector2 lastTouchPos;
 Scene scene;
 
 Camera camera(&scene);
-Mesh torus(&scene);
-Mesh cylinder(&scene);
-Mesh cube(&scene);
-Mesh sphere(&scene);
-Mesh plane(&scene);
+Shape torus(&scene);
+Shape cylinder(&scene);
+Shape cube(&scene);
+Shape sphere(&scene);
+Shape plane(&scene);
 
 TimedAction timedaction(&scene);
 

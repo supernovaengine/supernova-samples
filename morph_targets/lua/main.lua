@@ -3,7 +3,7 @@ lastTouchPos = Vector2(0, 0)
 scene = Scene()
 
 camera = Camera(scene)
-terrain = Mesh(scene)
+terrain = Shape(scene)
 model = Model(scene)
 sky = SkyBox(scene)
 sun = Light(scene)

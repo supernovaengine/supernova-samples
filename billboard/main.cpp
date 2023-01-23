@@ -22,7 +22,7 @@ Vector2 lastTouchPos;
 Scene scene;
 
 Camera camera(&scene);
-Mesh terrain(&scene);
+Shape terrain(&scene);
 SkyBox sky(&scene);
 
 Sprite tree1(&scene);

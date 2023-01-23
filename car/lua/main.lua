@@ -1,7 +1,7 @@
 scene = Scene()
 
 camera = Camera(scene)
-terrain = Mesh(scene)
+terrain = Shape(scene)
 car = Model(scene)
 house = Model(scene)
 sky = SkyBox(scene)

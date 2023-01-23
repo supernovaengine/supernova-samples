@@ -18,7 +18,7 @@ Scene scene;
 Scene uiscene;
 
 Camera camera(&scene);
-Mesh terrain(&scene);
+Shape terrain(&scene);
 Model car(&scene);
 Model house(&scene);
 SkyBox sky(&scene);

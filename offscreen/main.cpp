@@ -21,7 +21,7 @@ Text text2(&scene);
 
 Scene carscene;
 Camera* camera;
-Mesh terrain(&carscene);
+Shape terrain(&carscene);
 Model car(&carscene);
 SkyBox sky(&carscene);
 

@@ -18,7 +18,7 @@ Vector2 lastTouchPos;
 Scene scene;
 
 Camera camera(&scene);
-Mesh terrain(&scene);
+Shape terrain(&scene);
 Model model(&scene);
 SkyBox sky(&scene);
 
