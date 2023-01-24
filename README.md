@@ -14,3 +14,4 @@ This repository contains samples projects of [Supernova Engine's website](http:/
 * Motorcycle engine working (https://mixkit.co/free-sound-effects/engine/) - Mixkit License
 * Tiny Texture Pack (https://screamingbrainstudios.itch.io/tiny-texture-pack) - Public Domain
 * Tree Collection v2.6 (https://opengameart.org/content/tree-collection-v26-bleeds-game-art) - CC-BY 3.0
+* Free platformer game tileset (https://pzuh.itch.io/free-platformer-tileset) - Free without license
