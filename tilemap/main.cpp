@@ -39,6 +39,7 @@ void init(){
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
     text.setColor(0.3, 0.3, 0.3, 1.0);
 
+    map.setScale(0.6);
     map.addChild(&tilemap);
 
     objects.reserve(numObjects);
