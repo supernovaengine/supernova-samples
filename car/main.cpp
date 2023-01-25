@@ -23,9 +23,10 @@ Shape terrain(&scene);
 Model car(&scene);
 Model house(&scene);
 SkyBox sky(&scene);
-Text text(&uiscene);
 Audio carengine(&scene);
 Fog fog(&scene);
+
+Text text(&uiscene);
 
 float curve = 0;
 float speed = 0;

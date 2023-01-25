@@ -1,13 +1,15 @@
 scene = Scene()
+uiscene = Scene()
 
 camera = Camera(scene)
 terrain = Shape(scene)
 car = Model(scene)
 house = Model(scene)
 sky = SkyBox(scene)
-text = Text(scene)
 carengine = Audio(scene)
 fog = Fog(scene)
+
+text = Text(uiscene)
 
 curve = 0
 speed = 0
@@ -111,8 +113,9 @@ sun.type = LightType.DIRECTIONAL
 sun:setDirection(0, -0.4, 0.6)
 sun.shadows = true
 
-text:setPosition(100, 100, 0);
+text:setPosition(100, 100, 0)
 
 Engine.setScene(scene)
+Engine.addSceneLayer(uiscene)
 
 Engine.onUpdate = onUpdate
