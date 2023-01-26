@@ -45,6 +45,7 @@ void init(){
     tree1.setBillboard(true, false, true);
     tree1.setScale(0.1);
     tree1.setPosition(10,0,0);
+    tree1.setSize(100,100);
     tree1.setPivot(PivotPreset::BOTTOM_CENTER);
     tree1.addChild(&text1);
     
@@ -57,6 +58,7 @@ void init(){
     tree2.setBillboard(true);
     tree2.setScale(0.1);
     tree2.setPosition(-10,0,0);
+    tree2.setSize(100,100);
     tree2.setPivot(PivotPreset::BOTTOM_CENTER);
     tree2.addChild(&text2);
     
