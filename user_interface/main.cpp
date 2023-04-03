@@ -31,9 +31,13 @@ void init(){
     vcontainer.addChild(&hcontainer);
     vcontainer.addChild(&button2);
     vcontainer.addChild(&text);
+    vcontainer.setBoxExpand(2, true);
+    vcontainer.setBoxExpand(1, false);
+    vcontainer.setBoxExpand(0, true);
 
     hcontainer.addChild(&textedit);
     hcontainer.addChild(&button);
+    hcontainer.setBoxExpand(true);
 
     //vcontainer.setSize(0,0);
     vcontainer.setType(ContainerType::VERTICAL);
@@ -43,7 +47,7 @@ void init(){
 
     hcontainer.setType(ContainerType::HORIZONTAL);
     hcontainer.setName("hcontainer");
-    hcontainer.setAnchorPreset(AnchorPreset::FULL_LAYOUT);
+    hcontainer.setAnchorPreset(AnchorPreset::HORIZONTAL_CENTER_WIDE);
 
     button.setTexture("button_normal.png");
     button.setTexturePressed("button_disable.png");
@@ -68,7 +72,7 @@ void init(){
     button2.setFontSize(40);
     button2.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button2.getComponent<ButtonComponent>().onPress = onPress2;
-    button2.setAnchorPreset(AnchorPreset::FULL_LAYOUT);
+    button2.setAnchorPreset(AnchorPreset::HORIZONTAL_CENTER_WIDE);
     //button2.setAnchors(0.5, 0.5, 0.5, 0.5);
     //button2.setMargins(-200,-200, 200,200);
 
