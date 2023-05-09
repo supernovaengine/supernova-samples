@@ -46,7 +46,7 @@ void init(){
     tree1.setScale(0.1);
     tree1.setPosition(10,0,0);
     tree1.setSize(100,100);
-    tree1.setPivot(PivotPreset::BOTTOM_CENTER);
+    tree1.setPivotPreset(PivotPreset::BOTTOM_CENTER);
     tree1.addChild(&text1);
     
     text1.setText("True billboard");
@@ -59,7 +59,7 @@ void init(){
     tree2.setScale(0.1);
     tree2.setPosition(-10,0,0);
     tree2.setSize(100,100);
-    tree2.setPivot(PivotPreset::BOTTOM_CENTER);
+    tree2.setPivotPreset(PivotPreset::BOTTOM_CENTER);
     tree2.addChild(&text2);
     
     text2.setBillboard(true);

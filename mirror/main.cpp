@@ -55,7 +55,7 @@ void init(){
 
     mirror.setTexture(cameramirror.getFramebuffer());
     mirror.setSize(10,10);
-    mirror.setPivot(PivotPreset::CENTER);
+    mirror.setPivotPreset(PivotPreset::CENTER);
     mirror.setPosition(0,5,0);
     mirror.setName("mirror");
 
