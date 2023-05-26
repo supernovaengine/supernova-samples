@@ -42,6 +42,7 @@ void init(){
     map.setScale(0.6);
     map.addChild(&tilemap);
 
+    objects.clear();
     objects.reserve(numObjects);
     for (int i = 0; i < numObjects; i++){
         objects.emplace_back(&scene);
@@ -58,7 +59,6 @@ void init(){
     objects[2].setPosition(7*tilesize, 5*tilesize, 0);
     objects[3].setTexture("object/Sign_1.png");
     objects[3].setPosition(11*tilesize, 3*tilesize, 0);
-
 
     for (int i = 0; i < 2; i++){
         tilemap.addRect(i+16, "water"+std::to_string(i), "tiles/tileset2.png", TextureFilter::NEAREST, Rect(tilesize*i,0,tilesize,tilesize));
