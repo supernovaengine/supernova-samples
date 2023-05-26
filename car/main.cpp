@@ -20,11 +20,16 @@ Scene uiscene;
 
 Camera camera(&scene);
 Shape terrain(&scene);
+
 Model car(&scene);
+
 Model house(&scene);
 SkyBox sky(&scene);
 Audio carengine(&scene);
 Fog fog(&scene);
+
+Light* carlight = NULL;
+Light* sun = NULL;
 
 Text text(&uiscene);
 
@@ -77,7 +82,8 @@ void init(){
     sky.setTextureDown("ely_hills/hills_dn.tga");
     sky.setAlpha(0.2);
 
-    Light* carlight = new Light(&scene);
+    if (!carlight)
+        carlight = new Light(&scene);
     carlight->setType(LightType::SPOT);
     carlight->setConeAngle(80, 100);
     carlight->setPosition(0, 5, 8);
@@ -86,13 +92,14 @@ void init(){
     carlight->setShadows(true);
     car.addChild(carlight);
 
-    Light* sun = new Light(&scene);
+    if (!sun)
+        sun = new Light(&scene);
     sun->setType(LightType::DIRECTIONAL);
     sun->setDirection(0, -0.4, 0.6);
     sun->setShadows(true);
 
     text.setPosition(100, 100, 0);
-    
+
     Engine::setScene(&scene);
     Engine::addSceneLayer(&uiscene);
 

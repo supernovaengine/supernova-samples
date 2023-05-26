@@ -22,6 +22,7 @@ Camera camera(&scene);
 Shape terrain(&scene);
 Model model(&scene);
 SkyBox sky(&scene);
+Light* sun = NULL;
 
 Scene uiscene;
 Text text(&uiscene);
@@ -46,7 +47,8 @@ void init(){
     model.setRotation(0,90,0);
     model.getAnimation(0).setLoop(true);
 
-    Light* sun = new Light(&scene);
+    if (!sun)
+        sun = new Light(&scene);
     sun->setType(LightType::DIRECTIONAL);
     sun->setDirection(0,-0.7, 0.8);
     sun->setIntensity(10);
