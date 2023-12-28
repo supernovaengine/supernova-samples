@@ -1,18 +1,5 @@
 #include "Supernova.h"
 
-#include "Scene.h"
-#include "Camera.h"
-#include "Model.h"
-#include "SkyBox.h"
-#include "Light.h"
-#include "Sprite.h"
-#include "Input.h"
-#include "Text.h"
-#include "Image.h"
-#include "RenderSystem.h"
-#include "Light.h"
-#include "Shape.h"
-
 using namespace Supernova;
 
 void onUpdate();

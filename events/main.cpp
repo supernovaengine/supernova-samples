@@ -1,10 +1,4 @@
 #include "Supernova.h"
-#include "Scene.h"
-#include "Input.h"
-#include "StringUtils.h"
-#include "Text.h"
-
-
 using namespace Supernova;
 
 void onUpdate();

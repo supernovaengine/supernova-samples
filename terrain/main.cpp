@@ -1,17 +1,6 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-#include "Polygon.h"
-
-#include "Scene.h"
-#include "Terrain.h"
-#include "Camera.h"
-#include "Light.h"
-#include "Text.h"
-#include "Container.h"
-#include "Input.h"
-#include "System.h"
-
 float lastX;
 float lastY;
 float lastPressX;

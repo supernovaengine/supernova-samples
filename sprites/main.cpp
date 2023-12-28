@@ -1,13 +1,6 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-#include "Sprite.h"
-#include "SpriteAnimation.h"
-#include "MeshPolygon.h"
-#include "Input.h"
-#include "Angle.h"
-#include "Camera.h"
-
 Scene scene;
 
 Camera camera(&scene);

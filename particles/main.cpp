@@ -1,10 +1,6 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-
-#include "Particles.h"
-#include "ParticlesAnimation.h"
-
 Scene scene;
 
 Particles particles(&scene);

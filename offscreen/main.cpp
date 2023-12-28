@@ -1,17 +1,5 @@
 
 #include "Supernova.h"
-#include "Scene.h"
-
-#include "Camera.h"
-#include "Image.h"
-#include "Model.h"
-#include "SkyBox.h"
-#include "Container.h"
-#include "Text.h"
-#include "Input.h"
-#include "Angle.h"
-#include "Shape.h"
-
 using namespace Supernova;
 
 Scene scene;

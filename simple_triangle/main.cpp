@@ -1,8 +1,6 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-#include "Polygon.h"
-
 Scene scene;
 Polygon triangle(&scene);
 

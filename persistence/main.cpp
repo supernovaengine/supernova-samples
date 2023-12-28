@@ -1,12 +1,4 @@
 #include "Supernova.h"
-
-#include "Scene.h"
-#include "File.h"
-#include "System.h"
-#include "Log.h"
-#include "Button.h"
-#include "UserSettings.h"
-
 using namespace Supernova;
 
 Scene scene;

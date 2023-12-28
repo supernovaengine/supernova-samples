@@ -1,11 +1,4 @@
 #include "Supernova.h"
-
-#include "Scene.h"
-#include "Camera.h"
-#include "TimedAction.h"
-#include "Angle.h"
-#include "Shape.h"
-
 using namespace Supernova;
 
 void onActionStep();

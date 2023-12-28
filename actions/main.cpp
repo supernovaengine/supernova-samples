@@ -1,17 +1,6 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-#include "Polygon.h"
-#include "MeshPolygon.h"
-#include "Input.h"
-#include "Angle.h"
-#include "PositionAction.h"
-#include "RotationAction.h"
-#include "ScaleAction.h"
-#include "ColorAction.h"
-#include "AlphaAction.h"
-#include "Text.h"
-
 Scene scene;
 
 Text text(&scene);

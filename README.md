@@ -15,3 +15,5 @@ This repository contains samples projects of [Supernova Engine's website](http:/
 * Tiny Texture Pack (https://screamingbrainstudios.itch.io/tiny-texture-pack) - Public Domain
 * Tree Collection v2.6 (https://opengameart.org/content/tree-collection-v26-bleeds-game-art) - CC-BY 3.0
 * Free platformer game tileset (https://pzuh.itch.io/free-platformer-tileset) - Free without license
+* Crate (https://opengameart.org/content/3-crate-textures-w-bump-normal) - Public Domain
+* Soccer ball (https://opengameart.org/content/soccer-ball) - Public Domain

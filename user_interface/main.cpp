@@ -1,12 +1,4 @@
 #include "Supernova.h"
-#include "Scene.h"
-
-#include "Button.h"
-#include "TextEdit.h"
-#include "Image.h"
-#include "Polygon.h"
-#include "Container.h"
-
 using namespace Supernova;
 
 

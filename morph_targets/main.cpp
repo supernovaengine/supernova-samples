@@ -1,13 +1,4 @@
 #include "Supernova.h"
-
-#include "Scene.h"
-#include "Camera.h"
-#include "Model.h"
-#include "SkyBox.h"
-#include "Light.h"
-#include "Text.h"
-#include "Shape.h"
-
 using namespace Supernova;
 
 void onKeyDown(int key, bool repeat, int mods);
