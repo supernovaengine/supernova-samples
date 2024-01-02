@@ -18,6 +18,10 @@ SkyBox sky(&scene);
 Shape* cubes[4];
 Shape* spheres[4];
 
+Shape* cubesjoint[2];
+
+Joint3D joint(&scene);
+
 Scene uiscene;
 Text text(&uiscene);
 
@@ -31,7 +35,7 @@ void onContactAdded3D(Body3D bA, Body3D bB, Contact3D inContact){
 }
 
 void onContactPersisted3D(Body3D bA, Body3D bB, Contact3D inContact){
-    printf("onContactPersisted3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
+    //printf("onContactPersisted3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
 }
 
 void onContactRemoved3D(unsigned int bodyIDA, unsigned int bodyIDB, int subShape1, int subShape2){
@@ -39,7 +43,7 @@ void onContactRemoved3D(unsigned int bodyIDA, unsigned int bodyIDB, int subShape
 }
 
 bool shouldCollide3D(Body3D bA, Body3D bB, Vector3 inBaseOffset, CollideShapeResult3D inCollisionResult){
-    printf("shouldCollide3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
+    //printf("shouldCollide3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
 
     return true;
 }
@@ -53,6 +57,8 @@ void onBodyDeactivated3D(Body3D bA){
 }
 
 void startPositions(){
+    cubesjoint[1]->setPosition(4, 9, 2);
+
     for (int i = 0; i < 4; i++){
         if (i < 2){
             cubes[i]->setPosition((4*i)-6, 11, -0.5);
@@ -75,6 +81,20 @@ void init(){
     scene.getSystem<PhysicsSystem>()->onBodyActivated3D = onBodyActivated3D;
     scene.getSystem<PhysicsSystem>()->onBodyDeactivated3D = onBodyDeactivated3D;
 
+    cubesjoint[0] = new Shape(&scene);
+    cubesjoint[0]->createBox(cubeSize, cubeSize, cubeSize);
+    cubesjoint[0]->setTexture("block.png");
+    cubesjoint[0]->setName("cubejoint0");
+    cubesjoint[0]->getBody3D().setType(BodyType::STATIC);
+    cubesjoint[0]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
+    cubesjoint[0]->setPosition(0, 9, 2);
+
+    cubesjoint[1] = new Shape(&scene);
+    cubesjoint[1]->createBox(cubeSize, cubeSize, cubeSize);
+    cubesjoint[1]->setTexture("block.png");
+    cubesjoint[1]->setName("cubejoint0");
+    cubesjoint[1]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
+
     for (int i = 0; i < 4; i++){
         cubes[i] = new Shape(&scene);
         cubes[i]->createBox(cubeSize, cubeSize, cubeSize);
@@ -89,6 +109,8 @@ void init(){
         spheres[i]->getBody3D().createSphereShape(sphereSize);
     }
     startPositions();
+
+    joint.setDistanceJoint(cubesjoint[0]->getBody3D().getEntity(), cubesjoint[1]->getBody3D().getEntity(), cubesjoint[0]->getPosition(), cubesjoint[1]->getPosition());
 
     lastTouchPos = Vector2(0, 0);
 
