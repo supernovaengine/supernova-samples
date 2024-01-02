@@ -85,7 +85,6 @@ void init(){
     Body2D body =  crates[0]->getBody2D();
     body.createCenteredRectShape(100, 100, Vector2(0,0), 0);
     body.setShapeDensity(1.0);
-    body.setType(BodyType::DYNAMIC);
 
 
     crates[1]->setTexture("crate.png");
@@ -96,7 +95,7 @@ void init(){
     Body2D body1 = crates[1]->getBody2D();
     body1.createCenteredRectShape(100, 100);
     body1.setShapeDensity(1.0);
-    //body1.setType(Body2DType::DYNAMIC);
+    body1.setType(BodyType::STATIC);
 
 
     crates[2]->setTexture("crate.png");
@@ -107,7 +106,6 @@ void init(){
     Body2D body2 = crates[2]->getBody2D();
     body2.createCenteredRectShape(100, 100);
     body2.setShapeDensity(1.0);
-    body2.setType(BodyType::DYNAMIC);
 
 
     crates[3]->setTexture("crate.png");
@@ -118,7 +116,7 @@ void init(){
     Body2D body3 = crates[3]->getBody2D();
     body3.createCenteredRectShape(100, 100);
     body3.setShapeDensity(1.0);
-    //body3.setType(BodyType::DYNAMIC);
+    body3.setType(BodyType::STATIC);
 
 
     ball->setTexture("SoccerBall.png");
@@ -129,7 +127,6 @@ void init(){
     Body2D bodyball = ball->getBody2D();
     bodyball.createCircleShape(Vector2(0, 0), 25);
     bodyball.setShapeDensity(1.0);
-    bodyball.setType(BodyType::DYNAMIC);
 
 
     scene.getSystem<PhysicsSystem>()->shouldCollide2D = shouldCollide;
