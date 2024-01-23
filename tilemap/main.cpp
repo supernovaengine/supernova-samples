@@ -51,6 +51,8 @@ void init(){
     objects[3].setTexture("object/Sign_1.png");
     objects[3].setPosition(11*tilesize, 3*tilesize, 0);
 
+    tilemap.setTextureCutFactor(1.0);
+
     for (int i = 0; i < 2; i++){
         tilemap.addRect(i+16, "water"+std::to_string(i), "tiles/tileset2.png", TextureFilter::NEAREST, Rect(tilesize*i,0,tilesize,tilesize));
     }
