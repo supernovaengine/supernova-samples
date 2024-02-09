@@ -70,8 +70,6 @@ void init(){
     }
     ball = new Sprite(&scene);
 
-    startPositions();
-
     camera.setType(CameraType::CAMERA_ORTHO);
     scene.setCamera(camera.getEntity());
     scene.setBackgroundColor(0.6, 0.6, 0.6);
@@ -85,6 +83,7 @@ void init(){
     Body2D body =  crates[0]->getBody2D();
     body.createCenteredRectShape(100, 100, Vector2(0,0), 0);
     body.setShapeDensity(1.0);
+    body.load();
 
 
     crates[1]->setTexture("crate.png");
@@ -96,6 +95,7 @@ void init(){
     body1.createCenteredRectShape(100, 100);
     body1.setShapeDensity(1.0);
     body1.setType(BodyType::STATIC);
+    body1.load();
 
 
     crates[2]->setTexture("crate.png");
@@ -106,6 +106,7 @@ void init(){
     Body2D body2 = crates[2]->getBody2D();
     body2.createCenteredRectShape(100, 100);
     body2.setShapeDensity(1.0);
+    body2.load();
 
 
     crates[3]->setTexture("crate.png");
@@ -117,6 +118,7 @@ void init(){
     body3.createCenteredRectShape(100, 100);
     body3.setShapeDensity(1.0);
     body3.setType(BodyType::STATIC);
+    body3.load();
 
 
     ball->setTexture("SoccerBall.png");
@@ -127,7 +129,9 @@ void init(){
     Body2D bodyball = ball->getBody2D();
     bodyball.createCircleShape(Vector2(0, 0), 25);
     bodyball.setShapeDensity(1.0);
+    bodyball.load();
 
+    startPositions();
 
     scene.getSystem<PhysicsSystem>()->shouldCollide2D = shouldCollide;
     scene.getSystem<PhysicsSystem>()->beginContact2D = beginContact2D;

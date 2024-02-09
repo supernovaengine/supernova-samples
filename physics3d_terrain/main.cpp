@@ -47,12 +47,14 @@ void init(){
             cubes[(5*i)+j]->setTexture("block.png");
             cubes[(5*i)+j]->setName("cube"+std::to_string((4*i)+j));
             cubes[(5*i)+j]->getBody3D().createBoxShape(1, 1, 1);
+            cubes[(5*i)+j]->getBody3D().load();
 
             spheres[(5*i)+j] = new Shape(&scene);
             spheres[(5*i)+j]->createSphere(1.0);
             spheres[(5*i)+j]->setTexture("block.png");
             spheres[(5*i)+j]->setName("sphere"+std::to_string((4*i)+j));
             spheres[(5*i)+j]->getBody3D().createSphereShape(1);
+            spheres[(5*i)+j]->getBody3D().load();
         }
     }
     startPositions();
@@ -70,6 +72,7 @@ void init(){
     Body3D bodyterrain = terrain.getBody3D();
     bodyterrain.setType(BodyType::STATIC);
     bodyterrain.createHeightFieldShape();
+    bodyterrain.load();
 
     scene.setAmbientLight(0.4);
     scene.setBackgroundColor(Vector4(0.5,0.5,0.5,1.0));

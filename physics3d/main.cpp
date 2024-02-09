@@ -87,6 +87,7 @@ void init(){
     cubesjoint[0]->setName("cubejoint0");
     cubesjoint[0]->getBody3D().setType(BodyType::STATIC);
     cubesjoint[0]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
+    cubesjoint[0]->getBody3D().load();
     cubesjoint[0]->setPosition(0, 9, 2);
 
     cubesjoint[1] = new Shape(&scene);
@@ -94,6 +95,7 @@ void init(){
     cubesjoint[1]->setTexture("block.png");
     cubesjoint[1]->setName("cubejoint0");
     cubesjoint[1]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
+    cubesjoint[1]->getBody3D().load();
 
     for (int i = 0; i < 4; i++){
         cubes[i] = new Shape(&scene);
@@ -101,12 +103,14 @@ void init(){
         cubes[i]->setTexture("block.png");
         cubes[i]->setName("cube"+std::to_string(i));
         cubes[i]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
+        cubes[i]->getBody3D().load();
 
         spheres[i] = new Shape(&scene);
         spheres[i]->createSphere(sphereSize);
         spheres[i]->setTexture("block.png");
         spheres[i]->setName("sphere"+std::to_string(i));
         spheres[i]->getBody3D().createSphereShape(sphereSize);
+        spheres[i]->getBody3D().load();
     }
     startPositions();
 
@@ -130,6 +134,7 @@ void init(){
     Body3D bodyterrain = terrain.getBody3D();
     bodyterrain.setType(BodyType::STATIC);
     bodyterrain.createMeshShape();
+    bodyterrain.load();
 
     Light* sun = new Light(&scene);
     sun->setType(LightType::DIRECTIONAL);
