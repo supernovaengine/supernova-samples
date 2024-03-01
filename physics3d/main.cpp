@@ -38,8 +38,8 @@ void onContactPersisted3D(Body3D bA, Body3D bB, Contact3D inContact){
     //printf("onContactPersisted3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
 }
 
-void onContactRemoved3D(unsigned int bodyIDA, unsigned int bodyIDB, int subShape1, int subShape2){
-    printf("onContactRemoved3D %u %u\n", bodyIDA, bodyIDB);
+void onContactRemoved3D(Body3D bA, Body3D bB, unsigned long shapeIndex1, unsigned long shapeIndex2){
+    printf("onContactRemoved3D %s %s\n", bA.getAttachedObject().getName().c_str(), bB.getAttachedObject().getName().c_str());
 }
 
 bool shouldCollide3D(Body3D bA, Body3D bB, Vector3 inBaseOffset, CollideShapeResult3D inCollisionResult){
