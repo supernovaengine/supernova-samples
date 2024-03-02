@@ -16,6 +16,7 @@ Shape cylinder(&scene);
 Shape cube(&scene);
 Shape sphere(&scene);
 Shape plane(&scene);
+Shape capsule(&scene);
 
 TimedAction timedaction(&scene);
 
@@ -24,11 +25,12 @@ void init(){
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 30, 30);
+    camera.setView(0, 0, 5);
     camera.setName("camera");
 
     torus.createTorus(3, 1);
     torus.setTexture("block.png");
-    torus.setPosition(0,0,-10);
+    torus.setPosition(10,0,10);
 
     cylinder.createCylinder(1, 3);
     cylinder.setTexture("block.png");
@@ -45,6 +47,10 @@ void init(){
     plane.createPlane(5, 5);
     plane.setTexture("block.png");
     plane.setPosition(10,0,0);
+
+    capsule.createCapsule(1, 3);
+    capsule.setTexture("block.png");
+    capsule.setPosition(-10,0,10);
 
     timedaction.setDuration(5);
     timedaction.setLoop(true);
@@ -69,6 +75,7 @@ void onActionStep(){
     cube.setRotation(rot);
     sphere.setRotation(rot);
     plane.setRotation(rot);
+    capsule.setRotation(rot);
 }
 
 void onTouchMove(int pointer, float x, float y){
