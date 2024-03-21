@@ -75,5 +75,5 @@ void onTouchStart(int pointer, float x, float y){
 }
 
 void onMouseScroll(float xoffset, float yoffset, int mods){
-    camera.moveForward(1.0 * yoffset);
+    camera.zoom(1.0 * yoffset);
 }
