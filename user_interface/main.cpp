@@ -23,9 +23,9 @@ void init(){
     vcontainer.addChild(&hcontainer);
     vcontainer.addChild(&button2);
     vcontainer.addChild(&text);
-    vcontainer.setBoxExpand(2, true);
-    vcontainer.setBoxExpand(1, false);
     vcontainer.setBoxExpand(0, true);
+    vcontainer.setBoxExpand(1, false);
+    vcontainer.setBoxExpand(2, true);
 
     hcontainer.addChild(&textedit);
     hcontainer.addChild(&button);
@@ -49,7 +49,7 @@ void init(){
     //button.setLabelFont("arial.ttf");
     button.setLabel("Insert");
     button.setName("button1");
-    button.setFontSize(40);
+    button.setLabelFontSize(40);
     button.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button.getComponent<ButtonComponent>().onPress = onPress;
     button.setAnchorPreset(AnchorPreset::CENTER);
@@ -61,7 +61,7 @@ void init(){
     button2.setPatchMargin(5);
     button2.setLabel("Move position");
     button2.setName("button2");
-    button2.setFontSize(40);
+    button2.setLabelFontSize(40);
     button2.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button2.getComponent<ButtonComponent>().onPress = onPress2;
     button2.setAnchorPreset(AnchorPreset::HORIZONTAL_CENTER_WIDE);
