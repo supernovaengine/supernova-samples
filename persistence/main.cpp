@@ -65,7 +65,7 @@ void init(){
     button_save.setSize(200, 100);
     button_save.setPatchMargin(5);
     button_save.setLabel("Save");
-    button_save.setFontSize(40);
+    button_save.setLabelFontSize(40);
     button_save.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button_save.getComponent<ButtonComponent>().onRelease = onButton_save;
 
@@ -75,7 +75,7 @@ void init(){
     button_read.setSize(200, 100);
     button_read.setPatchMargin(5);
     button_read.setLabel("Read");
-    button_read.setFontSize(40);
+    button_read.setLabelFontSize(40);
     button_read.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button_read.getComponent<ButtonComponent>().onRelease = onButton_read;
 
@@ -85,7 +85,7 @@ void init(){
     button_storage_save.setSize(300, 100);
     button_storage_save.setPatchMargin(5);
     button_storage_save.setLabel("Save user setting");
-    button_storage_save.setFontSize(40);
+    button_storage_save.setLabelFontSize(40);
     button_storage_save.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button_storage_save.getComponent<ButtonComponent>().onRelease = onButton_storage_save;
 
@@ -95,7 +95,7 @@ void init(){
     button_storage_read.setSize(300, 100);
     button_storage_read.setPatchMargin(5);
     button_storage_read.setLabel("Read user setting");
-    button_storage_read.setFontSize(40);
+    button_storage_read.setLabelFontSize(40);
     button_storage_read.setLabelColor(Vector4(0.2, 0.2, 0.2, 1.0));
     button_storage_read.getComponent<ButtonComponent>().onRelease = onButton_storage_read;
 
