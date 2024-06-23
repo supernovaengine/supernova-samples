@@ -69,7 +69,7 @@ polygon4:setColor(0.5, 1.0, 0.3, 1.0)
 polygon4:setPosition(450, 300, 0)
 polygon4.name = "Polygon4"
 
-polygon2:moveToFirst();
+polygon2:moveToTop();
 
 startRot = Quaternion()
 endRot = Quaternion()

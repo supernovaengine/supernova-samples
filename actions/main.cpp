@@ -58,7 +58,7 @@ void init(){
     polygon4.setPosition(450, 300, 0);
     polygon4.setName("Polygon4");
 
-    polygon2.moveToFirst();
+    polygon2.moveToTop();
 
     Quaternion startRot;
     Quaternion endRot;
