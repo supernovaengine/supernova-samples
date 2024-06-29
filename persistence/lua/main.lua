@@ -61,7 +61,7 @@ button_save:setPosition(100, 100, 0)
 button_save:setSize(200, 100)
 button_save:setPatchMargin(5)
 button_save.label = "Save"
-button_save.fontSize = 40
+button_save.labelFontSize = 40
 button_save.labelColor = Vector4(0.2, 0.2, 0.2, 1.0)
 button_save:getButtonComponent().onRelease = onButton_save;
 
@@ -71,7 +71,7 @@ button_read:setPosition(500, 100, 0)
 button_read:setSize(200, 100)
 button_read:setPatchMargin(5)
 button_read.label = "Read"
-button_read.fontSize = 40
+button_read.labelFontSize = 40
 button_read.labelColor = Vector4(0.2, 0.2, 0.2, 1.0)
 button_read:getButtonComponent().onRelease = onButton_read
 
@@ -81,7 +81,7 @@ button_storage_save:setPosition(100, 300, 0)
 button_storage_save:setSize(300, 100)
 button_storage_save:setPatchMargin(5)
 button_storage_save.label = "Save user setting"
-button_storage_save.fontSize = 40
+button_storage_save.labelFontSize = 40
 button_storage_save.labelColor = Vector4(0.2, 0.2, 0.2, 1.0)
 button_storage_save:getButtonComponent().onRelease = onButton_storage_save
 
@@ -91,7 +91,7 @@ button_storage_read:setPosition(500, 300, 0)
 button_storage_read:setSize(300, 100)
 button_storage_read:setPatchMargin(5)
 button_storage_read.label = "Read user setting"
-button_storage_read.fontSize = 40
+button_storage_read.labelFontSize = 40
 button_storage_read.labelColor = Vector4(0.2, 0.2, 0.2, 1.0)
 button_storage_read:getButtonComponent().onRelease = onButton_storage_read
 
