@@ -1,17 +1,23 @@
 #include "Supernova.h"
 using namespace Supernova;
 
-
 Scene scene;
-Image window(&scene);
+
+Panel window(&scene);
+Container windowcontainer(&scene);
+Container iconlist(&scene);
+Scrollbar scroll(&scene);
+
+Panel window2(&scene);
 Button button(&scene);
 Button button2(&scene);
 TextEdit textedit(&scene);
 Text text(&scene);
-
 Container vcontainer(&scene);
 Container hcontainer(&scene);
 
+void onWindowResize(int width, int height);
+void onChangeScroll(float step);
 void onPress();
 void onPress2();
 
@@ -19,6 +25,61 @@ void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
     Engine::setScalingMode(Scaling::NATIVE);
+
+    window.setSize(430, 400);
+    window.setTitle("Files");
+    window.setTexture("window.png");
+    window.setPatchMargin(10, 10, 50, 10);
+    window.setPosition(50, 50);
+    window.addChild(&windowcontainer);
+    window.setName("window");
+    window.getComponent<PanelComponent>().onResize = onWindowResize;
+
+    windowcontainer.setType(ContainerType::HORIZONTAL);
+    windowcontainer.setAnchorPreset(AnchorPreset::FULL_LAYOUT);
+    windowcontainer.addChild(&iconlist);
+    windowcontainer.addChild(&scroll);
+    windowcontainer.setName("windowcontainer");
+    windowcontainer.setBoxExpand(1, false);
+
+    iconlist.setType(ContainerType::HORIZONTAL_WRAP);
+    iconlist.setAnchorPreset(AnchorPreset::TOP_WIDE);
+    iconlist.setName("iconlist");
+
+    scroll.setSize(20, 20);
+    scroll.setColor(0.5, 0.5, 0.5);
+    scroll.setBarSize(0.6);
+    scroll.setBarColor(0.8, 0.8, 0.8, 1.0);
+    scroll.setStep(0.0);
+    scroll.setType(ScrollbarType::VERTICAL);
+    scroll.setAnchorPreset(AnchorPreset::VERTICAL_CENTER_WIDE);
+    scroll.getComponent<ScrollbarComponent>().onChange = onChangeScroll;
+    scroll.setBarTexture("button_normal.png");
+    scroll.setBarPatchMargin(5);
+
+    for (int i = 0; i < 22; i++){
+        Container* iconset = new Container(window.getScene());
+        Image* iconimage = new Image(window.getScene());
+        Text* icontext = new Text(window.getScene());
+
+        iconlist.addChild(iconset);
+
+        iconset->addChild(iconimage);
+        iconset->addChild(icontext);
+        iconset->setName("iconset");
+        iconset->setAnchorPreset(AnchorPreset::CENTER);
+
+        iconimage->setTexture("paper_icon.png");
+        iconimage->setSize(30, 40);
+        iconimage->setAnchorPreset(AnchorPreset::CENTER);
+        iconimage->setName("iconimage");
+        icontext->setText("terrain_"+std::to_string(i)+".obj");
+        icontext->setColor(0, 0, 0, 1);
+        icontext->setFontSize(20);
+        icontext->setAnchorPreset(AnchorPreset::CENTER);
+    }
+
+ // ==============================================
 
     vcontainer.addChild(&hcontainer);
     vcontainer.addChild(&button2);
@@ -82,18 +143,36 @@ void init(){
     text.setColor(Vector4(0.2, 0.2, 0.2, 1.0));
     text.setAnchorPreset(AnchorPreset::CENTER_BOTTOM);
 
-    window.setTexture("window.png");
+    window2.setTexture("window.png");
     //window.getComponent<UIComponent>().texture.setMinFilter(TextureFilter::NEAREST_MIPMAP_NEAREST);
     //window.getComponent<UIComponent>().texture.setWrapU(TextureWrap::CLAMP_TO_EDGE);
-    window.setPosition(0,0,0);
-    window.setPatchMargin(10, 10, 50, 10);
-    window.setSize(600,400);
-    window.setName("window");
-    window.setAnchorPreset(AnchorPreset::CENTER);
-
-    window.addChild(&vcontainer);
+    window2.setPosition(300,20,0);
+    window2.setPatchMargin(10, 10, 50, 10);
+    window2.setSize(600,400);
+    window2.setName("window");
+    window2.setTitle("Window");
+    //window.setAnchorPreset(AnchorPreset::CENTER);
+    window2.addChild(&vcontainer);
 
     Engine::setScene(&scene);
+}
+
+void onWindowResize(int width, int height){
+    float bar = (float)windowcontainer.getHeight() / (float)iconlist.getHeight();
+
+    scroll.setBarSize(bar);
+
+    if (bar >= 1){
+        scroll.setVisible(false);
+    }else{
+        scroll.setVisible(true);
+    }
+}
+
+void onChangeScroll(float step){
+    int diff = iconlist.getHeight() - windowcontainer.getHeight();
+
+    iconlist.setPositionOffset(Vector2(0, -step*diff));
 }
 
 void onPress(){
