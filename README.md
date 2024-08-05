@@ -17,3 +17,4 @@ This repository contains samples projects of [Supernova Engine's website](http:/
 * Free platformer game tileset (https://pzuh.itch.io/free-platformer-tileset) - Free without license
 * Crate (https://opengameart.org/content/3-crate-textures-w-bump-normal) - Public Domain
 * Soccer ball (https://opengameart.org/content/soccer-ball) - Public Domain
+* Explosion Particle Sprite - (https://opengameart.org/content/explosion-particles-sprite-atlas) - Public Domain

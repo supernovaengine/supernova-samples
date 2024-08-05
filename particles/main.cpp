@@ -1,50 +1,101 @@
 #include "Supernova.h"
 using namespace Supernova;
 
+enum class ParticlesType{
+    POINTS,
+    SPRITES
+};
+
+std::string parttext(" particles (press any key to change)");
+
 Scene scene;
 
+Text text(&scene);
+
+Points points(&scene);
+Sprite sprite(&scene);
 Particles particles(&scene);
-ParticlesAnimation partianim(&scene);
+
+ParticlesType type;
+
+void onKeyDown(int key, bool repeat, int mods);
 
 void init(){
+    text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
-    particles.setPosition(300, 100, 0);
-    particles.setTexture("f4.png");
+    text.setText("Sprite" + parttext);
+    type = ParticlesType::SPRITES;
+
+    sprite.setPosition(300, 100, 0);
+    sprite.setPivotPreset(PivotPreset::CENTER);
+    sprite.setTexture("explosion.png");
+    sprite.setSize(50, 50);
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            sprite.addFrame((i+(j*3)), "", Rect(i * ((1/3.0)), j * ((1/3.0)), (1/3.0), (1/3.0)));
+        }
+    }
+
+    points.setPosition(300, 100, 0);
+    points.setTexture("explosion.png");
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            points.addSpriteFrame((i+(j*3)), "", Rect(i * ((1/3.0)), j * ((1/3.0)), (1/3.0), (1/3.0)));
+        }
+    }
 
     //particles.addParticle(Vector3(30, 30, 0), Vector4(1.0, 1.0, 1.0, 1.0), 50, 40);
     //particles.addParticle(Vector3(20, 60, 0), Vector4(0.0, 1.0, 0.0, 1.0), 40, 0, Rect(0, 0, 0.5, 0.5));
-    
-    //particles.addSpriteFrame(0, "", Rect(0.5, 0.5, 0.5, 0.5));
-    //particles.addSpriteFrame(1, "", Rect(0.5, 0.0, 0.5, 0.5));
-    //particles.addSpriteFrame(2, "", Rect(0.0, 0.5, 0.5, 0.5));
 
-    partianim.setTarget(particles.getEntity());
+    particles.setTarget(&sprite);
 
-    partianim.setLifeInitializer(10);
+    particles.setLifeInitializer(10);
 
-    partianim.setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0));
-    //partianim.setPositionModifier(2,4, Vector3(0,0,0), Vector3(0,300,0));
+    particles.setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0));
+    //particles.setPositionModifier(2,4, Vector3(0,0,0), Vector3(0,300,0));
 
-    partianim.setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0));
-    partianim.setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0), EaseType::CUBIC_IN_OUT);
+    particles.setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0));
+    particles.setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0), EaseType::CUBIC_IN_OUT);
 
-    //partianim.setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0));
+    //particles.setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0));
 
-    partianim.setColorInitializer(Vector3(0,0,0), Vector3(1,1,1));
-    //partianim.setColorModifier(2, 5, Vector3(1,1,1), Vector3(1,0,0));
+    particles.setColorInitializer(Vector3(0,0,0), Vector3(1,1,1));
+    //particles.setColorModifier(2, 5, Vector3(1,1,1), Vector3(1,0,0));
 
-    //partianim.setAlphaInitializer(0, 1);
-    partianim.setAlphaModifier(4, 6, 1, 0.2);
+    //particles.setAlphaInitializer(0, 1);
+    particles.setAlphaModifier(4, 6, 1, 0.2);
 
-    partianim.setSizeInitializer(10, 50);
+    particles.setSizeInitializer(10, 50); //for points
+    particles.setScaleInitializer(1.0/5.0, 1.0);
 
-    //partianim.setSpriteIntializer(0, 2);
-    //partianim.setSpriteModifier(5, 8, {0,1,2});
+    particles.setSpriteIntializer(0, 2);
+    particles.setSpriteModifier(1, 8, {0,1,2,3,4,5,6,7,8});
 
-    //partianim.setRotationInitializer(90);
-    //partianim.setRotationModifier(1, 5, 0, 360);
+    //particles.setRotationInitializer(0, 90);
+    //particles.setRotationModifier(1, 5, 0, 359);
 
     Engine::setScene(&scene);
+    Engine::onKeyDown = onKeyDown;
 
-    partianim.start();
+    particles.start();
+}
+
+void onKeyDown(int key, bool repeat, int mods){
+    if (type == ParticlesType::SPRITES){
+        text.setText("Points" + parttext);
+        type = ParticlesType::POINTS;
+        particles.setTarget(&points);
+
+        sprite.clearInstances();
+        sprite.setVisible(false);
+        points.setVisible(true);
+    }else{
+        text.setText("Sprite" + parttext);
+        type = ParticlesType::SPRITES;
+        particles.setTarget(&sprite);
+
+        points.clearPoints();
+        points.setVisible(false);
+        sprite.setVisible(true);
+    }
 }
