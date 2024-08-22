@@ -18,4 +18,4 @@ This repository contains samples projects of [Supernova Engine's website](http:/
 * Crate (https://opengameart.org/content/3-crate-textures-w-bump-normal) - Public Domain
 * Soccer ball (https://opengameart.org/content/soccer-ball) - Public Domain
 * Explosion Particle Sprite - (https://opengameart.org/content/explosion-particles-sprite-atlas) - Public Domain
-* Low-poly Tree - (https://quaternius.itch.io/150-lowpoly-nature-models) - CC0 1.0 Universal
+* CommonTree - (https://quaternius.itch.io/150-lowpoly-nature-models) - CC0 1.0 Universal
