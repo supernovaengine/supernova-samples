@@ -46,6 +46,7 @@ void init(){
             cubes[(5*i)+j]->createBox(1.0, 1.0, 1.0);
             cubes[(5*i)+j]->setTexture("block.png");
             cubes[(5*i)+j]->setName("cube"+std::to_string((4*i)+j));
+            cubes[(5*i)+j]->getBody3D().setType(BodyType::DYNAMIC);
             cubes[(5*i)+j]->getBody3D().createBoxShape(1, 1, 1);
             cubes[(5*i)+j]->getBody3D().load();
 
@@ -53,6 +54,7 @@ void init(){
             spheres[(5*i)+j]->createSphere(1.0);
             spheres[(5*i)+j]->setTexture("block.png");
             spheres[(5*i)+j]->setName("sphere"+std::to_string((4*i)+j));
+            spheres[(5*i)+j]->getBody3D().setType(BodyType::DYNAMIC);
             spheres[(5*i)+j]->getBody3D().createSphereShape(1);
             spheres[(5*i)+j]->getBody3D().load();
         }

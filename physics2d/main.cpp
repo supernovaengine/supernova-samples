@@ -90,6 +90,7 @@ void init(){
     Body2D body =  crates[0]->getBody2D();
     body.createCenteredBoxShape(100, 100, Vector2(0,0), 0);
     body.setShapeDensity(1.0);
+    body.setType(BodyType::DYNAMIC);
     body.load();
 
 
@@ -103,7 +104,6 @@ void init(){
     body1.setShapeDensity(1.0);
     body1.setShapeEnableHitEvents(true);
     body1.setShapePreSolveEvents(true);
-    body1.setType(BodyType::STATIC);
     body1.load();
 
 
@@ -115,6 +115,7 @@ void init(){
     Body2D body2 = crates[2]->getBody2D();
     body2.createCenteredBoxShape(100, 100);
     body2.setShapeDensity(1.0);
+    body2.setType(BodyType::DYNAMIC);
     body2.load();
 
 
@@ -126,7 +127,6 @@ void init(){
     Body2D body3 = crates[3]->getBody2D();
     body3.createCenteredBoxShape(100, 100);
     body3.setShapeDensity(1.0);
-    body3.setType(BodyType::STATIC);
     body3.load();
 
 
@@ -138,6 +138,7 @@ void init(){
     Body2D bodyball = ball->getBody2D();
     bodyball.createCircleShape(Vector2(0, 0), 25);
     bodyball.setShapeDensity(1.0);
+    bodyball.setType(BodyType::DYNAMIC);
     bodyball.load();
 
     startPositions();
@@ -153,6 +154,7 @@ void init(){
     joint.setDistanceJoint(body2.getEntity(), body3.getEntity(), Vector2(crates[2]->getPosition()), Vector2(crates[3]->getPosition()), false);
 
     lines.addLine(Vector3(725, 0, 0), Vector3(725, 500, 0));
+
     points.addPoint(Vector3(0, 0, 0), Vector4(1, 0, 1, 1), 10);
     points.setPointVisible(0, false);
 
