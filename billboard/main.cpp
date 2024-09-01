@@ -15,6 +15,7 @@ Scene scene;
 Camera camera(&scene);
 Shape terrain(&scene);
 SkyBox sky(&scene);
+Light* sun = NULL;
 
 Sprite tree1(&scene);
 Text text1(&scene);
@@ -26,7 +27,7 @@ void init(){
     scene.setAmbientLight(0.2);
     scene.setCamera(camera.getEntity());
 
-    camera.setPosition(0, 7, 40);
+    camera.setPosition(0, 7, -40);
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
@@ -46,6 +47,7 @@ void init(){
 
     tree2.setTexture("tree_08_10000.png");
     tree2.setBillboard(true);
+    tree2.setCylindricalBillboard(true);
     tree2.setScale(0.1);
     tree2.setPosition(-10,0,0);
     tree2.setSize(100,100);
@@ -64,6 +66,13 @@ void init(){
     sky.setTextureRight("ely_hills/hills_ft.tga");
     sky.setTextureUp("ely_hills/hills_up.tga");
     sky.setTextureDown("ely_hills/hills_dn.tga");
+
+    if (!sun)
+        sun = new Light(&scene);
+    sun->setType(LightType::DIRECTIONAL);
+    sun->setDirection(0,-0.7, 0.8);
+    sun->setIntensity(10);
+    sun->setShadows(true);
 
     Engine::setScene(&scene);
     Engine::setCallTouchInMouseEvent(true);
