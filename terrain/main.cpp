@@ -70,7 +70,7 @@ void onUpdate(){
     text3.setText(std::string("Camera Y: ") + std::to_string(camera.getWorldPosition().y));
     text4.setText(std::string("Camera Z: ") + std::to_string(camera.getWorldPosition().z));
 
-    if (Input::isKeyPressed(S_KEY_UP) || Input::isKeyPressed(S_KEY_UP)){
+    if (Input::isKeyPressed(S_KEY_UP) || Input::isKeyPressed(S_KEY_W)){
         camera.walkForward(1);
     }
     if (Input::isKeyPressed(S_KEY_DOWN) || Input::isKeyPressed(S_KEY_S)){

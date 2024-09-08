@@ -25,7 +25,6 @@ Light sun(&scene);
 
 Particles particles(&scene);
 Sprite sprite(&scene);
-Points points(&scene);
 Shape cube(&scene);
 
 Model trees(&scene);
@@ -65,8 +64,6 @@ void init(){
     sprite.setCastShadows(false);
     sprite.setReceiveShadows(false);
     sprite.setSize(2,2);
-
-    points.setTexture("fire.png");
     
     particles.setMaxParticles(100);
     particles.setRate(10);
