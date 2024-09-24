@@ -179,6 +179,6 @@ void onTouchStart(int pointer, float x, float y){
 }
 
 void onMouseScroll(float xoffset, float yoffset, int mods){
-    camera.moveForward(0.5 * yoffset);
+    camera.slideForward(0.5 * yoffset);
     camera.setView(0, 2, 0);
 }
