@@ -47,7 +47,7 @@ void init(){
     scene.setAmbientLight(0.7);
 
     camera.setPosition(0, 7, 40);
-    camera.setView(0, 15, 0);
+    camera.setTarget(0, 15, 0);
     camera.setName("camera");
 
     //sun.setType(LightType::DIRECTIONAL);

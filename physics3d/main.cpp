@@ -128,7 +128,7 @@ void init(){
     text.setName("text");
 
     camera.setPosition(0, 7, -20);
-    camera.setView(0, 2, 0);
+    camera.setTarget(0, 2, 0);
 
     terrain.createPlane(terrainSize, terrainSize);
     terrain.setTexture("ground.png");
@@ -180,5 +180,5 @@ void onTouchStart(int pointer, float x, float y){
 
 void onMouseScroll(float xoffset, float yoffset, int mods){
     camera.slideForward(0.5 * yoffset);
-    camera.setView(0, 2, 0);
+    camera.setTarget(0, 2, 0);
 }

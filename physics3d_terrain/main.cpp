@@ -132,12 +132,12 @@ void onUpdate(){
 void onKeyDown(int key, bool repeat, int mods){
     if (key == S_KEY_X){
         camera.setPosition(camera.getPosition().x, camera.getPosition().y+10, camera.getPosition().z);
-        camera.setView(camera.getView().x, camera.getView().y+10, camera.getView().z);
+        camera.setTarget(camera.getTarget().x, camera.getTarget().y+10, camera.getTarget().z);
     }
 
     if (key == S_KEY_Z){
         camera.setPosition(camera.getPosition().x, camera.getPosition().y-10, camera.getPosition().z);
-        camera.setView(camera.getView().x, camera.getView().y-10, camera.getView().z);
+        camera.setTarget(camera.getTarget().x, camera.getTarget().y-10, camera.getTarget().z);
     }
 
     if (key == S_KEY_SPACE){

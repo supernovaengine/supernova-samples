@@ -25,7 +25,7 @@ void init(){
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 30, 30);
-    camera.setView(0, 0, 5);
+    camera.setTarget(0, 0, 5);
     camera.setName("camera");
 
     torus.createTorus(3, 1);

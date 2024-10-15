@@ -35,7 +35,7 @@ text.text = "Press any key to start"
 text.anchorPreset = AnchorPreset.CENTER_TOP
 
 camera:setPosition(0, 7, -20)
-camera:setView(0, 2, 0);
+camera:setTarget(0, 2, 0);
 
 terrain:createPlane(200, 200)
 terrain:setTexture("ground.png")

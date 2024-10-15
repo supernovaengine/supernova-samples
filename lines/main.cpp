@@ -43,7 +43,7 @@ void init(){
     }
 
     camera.setPosition(0, 7, 20);
-    camera.setView(0, 2, 0);
+    camera.setTarget(0, 2, 0);
 
     Engine::setScalingMode(Scaling::FITWIDTH);
     Engine::setScene(&scene);

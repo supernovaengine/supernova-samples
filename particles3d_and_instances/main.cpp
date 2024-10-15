@@ -44,7 +44,7 @@ void init(){
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 7, 40);
-    camera.setView(0, 7, 0);
+    camera.setTarget(0, 7, 0);
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");

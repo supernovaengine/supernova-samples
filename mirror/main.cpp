@@ -36,7 +36,7 @@ void init(){
     terrain.setName("terrain");
 
     cameramirror.setPosition(0, 5, 0);
-    cameramirror.setView(0, 5, 40);
+    cameramirror.setTarget(0, 5, 40);
     cameramirror.setRenderToTexture(true);
     cameramirror.setName("cameramirror");
 
@@ -91,7 +91,7 @@ void onUpdate(){
 
     Vector3 camVec = mirror.getPosition() - camera.getPosition();
     Vector3 reflVec = camVec.reflect(Vector3(0,0,1));
-    cameramirror.setView(cameramirror.getPosition() + reflVec);
+    cameramirror.setTarget(cameramirror.getPosition() + reflVec);
 }
 
 void onKeyDown(int key, bool repeat, int mods){
