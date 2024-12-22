@@ -47,7 +47,7 @@ void init(){
     plane.createPlane(5, 5);
     plane.setTexture("block.png");
     plane.setPosition(10,0,0);
-    plane.setEnableFaceCulling(false);
+    plane.setFaceCulling(false);
 
     capsule.createCapsule(1, 3);
     capsule.setTexture("block.png");
