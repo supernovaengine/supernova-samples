@@ -97,7 +97,7 @@ terrain:setTextureDetailBlue("block.png");
 
 scene.camera = camera.entity;
 
-scene.ambientLightFactor = 0.2;
+scene.ambientLightIntensity = 0.1;
 
 sun:setType(LightType.DIRECTIONAL)
 sun:setDirection(0.0, -0.3, -0.8)

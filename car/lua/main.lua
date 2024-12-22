@@ -62,7 +62,7 @@ end
 
 scene.camera = camera.entity
 
-scene.ambientLightFactor = 0.5;
+scene.ambientLightIntensity = 0.3;
 scene:setBackgroundColor(0.8, 0.8, 0.8);
 
 fog.type = FogType.LINEAR
