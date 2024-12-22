@@ -20,7 +20,7 @@ Text text(&uiscene);
 
 
 void init(){
-    scene.setAmbientLight(0.2);
+    scene.setAmbientLight(0.1);
     scene.setCamera(camera.getEntity());
 
     text.setText("Press any key to start");

@@ -40,7 +40,7 @@ void init(){
     text.setText("Sprite" + parttext);
     type = ParticlesType::SPRITE;
 
-    scene.setAmbientLight(0.2);
+    scene.setAmbientLight(0.1);
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 7, 40);

@@ -40,7 +40,7 @@ void init(){
 
     scene.setCamera(camera.getEntity());
 
-    scene.setAmbientLight(0.2);
+    scene.setAmbientLight(0.1);
 
     sun.setType(LightType::DIRECTIONAL);
     sun.setDirection(0.0f, -0.3, -0.8);

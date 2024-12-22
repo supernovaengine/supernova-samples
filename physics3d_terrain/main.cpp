@@ -76,7 +76,7 @@ void init(){
     bodyterrain.createHeightFieldShape();
     bodyterrain.load();
 
-    scene.setAmbientLight(0.4);
+    scene.setAmbientLight(0.2);
     scene.setBackgroundColor(Vector4(0.5,0.5,0.5,1.0));
 
     sun.setType(LightType::DIRECTIONAL);
