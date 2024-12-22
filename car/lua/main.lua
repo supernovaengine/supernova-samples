@@ -56,7 +56,7 @@ function onUpdate()
     car:setRotation(0, rotation, 0);
     car.position = car.position + (vDir*speed)
 
-    camera.view = car.position
+    camera.target = car.position
 end
 
 
