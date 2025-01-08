@@ -23,7 +23,7 @@ function onUpdate()
     text3.text = "Camera Y: " .. tostring(camera.position.y)
     text4.text = "Camera Z: " .. tostring(camera.position.z)
 
-    if (Input.isKeyPressed(Input.KEY_UP) or Input.isKeyPressed(Input.KEY_UP)) then
+    if (Input.isKeyPressed(Input.KEY_UP) or Input.isKeyPressed(Input.KEY_W)) then
         camera:walkForward(1)
     end
     if (Input.isKeyPressed(Input.KEY_DOWN) or Input.isKeyPressed(Input.KEY_S)) then

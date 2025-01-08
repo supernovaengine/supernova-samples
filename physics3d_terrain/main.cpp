@@ -108,7 +108,7 @@ void onViewLoaded(){
 void onUpdate(){
     text.setText(std::string("FPS: ") + std::to_string(Engine::getFramerate()).c_str());
 
-    if (Input::isKeyPressed(S_KEY_UP) || Input::isKeyPressed(S_KEY_UP)){
+    if (Input::isKeyPressed(S_KEY_UP) || Input::isKeyPressed(S_KEY_W)){
         camera.walkForward(1);
     }
     if (Input::isKeyPressed(S_KEY_DOWN) || Input::isKeyPressed(S_KEY_S)){
