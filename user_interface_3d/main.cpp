@@ -44,7 +44,7 @@ Container hcontainer(&uiscene);
 
 void init(){
     scene.setCamera(camera.getEntity());
-    scene.setAmbientLight(0.5);
+    scene.setGlobalIllumination(0.5);
 
     camera.setPosition(0, 7, 40);
     camera.setTarget(0, 15, 0);

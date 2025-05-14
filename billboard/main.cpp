@@ -24,7 +24,7 @@ Sprite tree2(&scene);
 Text text2(&scene);
 
 void init(){
-    scene.setAmbientLight(0.1);
+    scene.setGlobalIllumination(0.1);
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 7, -40);

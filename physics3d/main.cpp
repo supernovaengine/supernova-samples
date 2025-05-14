@@ -120,7 +120,7 @@ void init(){
 
     lastTouchPos = Vector2(0, 0);
 
-    scene.setAmbientLight(0.3);
+    scene.setGlobalIllumination(0.3);
     scene.setCamera(camera.getEntity());
 
     text.setText("Press any key to reset");

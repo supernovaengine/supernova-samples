@@ -31,7 +31,7 @@ void onUpdate();
 
 void init(){
 
-    scene.setAmbientLight(0.3);
+    scene.setGlobalIllumination(0.3);
     scene.setBackgroundColor(0.8, 0.8, 0.8);
 
     scene.setCamera(camera.getEntity());
