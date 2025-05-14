@@ -28,7 +28,7 @@ function onTouchMove(pointer, x, y)
     camera:elevatePosition(-0.1 * difY)
 end
 
-scene.ambientLightIntensity = 0.1
+scene.globalIlluminationIntensity = 0.1
 scene.camera = camera.entity
 
 text.text = "Press any key to start"
