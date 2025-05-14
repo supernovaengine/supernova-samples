@@ -44,18 +44,18 @@ void init(){
 
     objects[0].setTexture("object/Tree_1.png");
     objects[0].setPosition(1*tilesize, 5*tilesize, 0);
-    objects[0].setTextureCutFactor(1.0);
+    objects[0].setTextureScaleFactor(1.0);
     objects[1].setTexture("object/Tree_2.png");
     objects[1].setPosition(5*tilesize, 2*tilesize, 0);
-    objects[1].setTextureCutFactor(1.0);
+    objects[1].setTextureScaleFactor(1.0);
     objects[2].setTexture("object/Stone.png");
     objects[2].setPosition(7*tilesize, 5*tilesize, 0);
-    objects[2].setTextureCutFactor(1.0);
+    objects[2].setTextureScaleFactor(1.0);
     objects[3].setTexture("object/Sign_1.png");
     objects[3].setPosition(11*tilesize, 3*tilesize, 0);
-    objects[3].setTextureCutFactor(1.0);
+    objects[3].setTextureScaleFactor(1.0);
 
-    tilemap.setTextureCutFactor(1.0);
+    tilemap.setTextureScaleFactor(1.0);
 
     for (int i = 0; i < 2; i++){
         tilemap.addRect(i+16, "water"+std::to_string(i), "tiles/tileset2.png", TextureFilter::NEAREST, Rect(tilesize*i,0,tilesize,tilesize));
