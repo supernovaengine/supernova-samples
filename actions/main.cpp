@@ -21,7 +21,7 @@ void onActionStep();
 void onActionStart();
 void onTouchStart(int pointer, float x, float y);
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     text.setText("Click on screen to start");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);

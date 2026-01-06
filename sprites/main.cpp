@@ -12,7 +12,7 @@ SpriteAnimation spriteanim(&scene);
 void onActionStart();
 void onTouchStart(int pointer, float x, float y);
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     camera.setType(CameraType::CAMERA_ORTHO);
     scene.setCamera(camera.getEntity());

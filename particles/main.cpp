@@ -20,7 +20,7 @@ ParticlesType type;
 
 void onKeyDown(int key, bool repeat, int mods);
 
-void init(){
+SUPERNOVA_INIT void init(){
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     text.setText("Sprite" + parttext);

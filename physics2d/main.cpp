@@ -67,7 +67,7 @@ void startPositions(){
 }
 
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     text.setText("Press any key to reset");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);

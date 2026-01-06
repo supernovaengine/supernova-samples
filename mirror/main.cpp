@@ -21,7 +21,7 @@ Camera cameramirror(&scene);
 Sprite mirror(&scene);
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.setCamera(camera.getEntity());
     scene.setGlobalIllumination(0.5);
 

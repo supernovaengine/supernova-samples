@@ -21,7 +21,7 @@ void onChangeScroll(float step);
 void onPress();
 void onPress2();
 
-void init(){
+SUPERNOVA_INIT void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
     Engine::setScalingMode(Scaling::NATIVE);

@@ -25,7 +25,7 @@ void onKeyUp(int key, bool repeat, int mods);
 void onTouchStart(int pointer, float x, float y);
 void onTouchMove(int pointer, float x, float y);
 
-void init(){
+SUPERNOVA_INIT void init(){
     camera.setPosition(0, 15, -60);
 
     terrain.setName("terrain");

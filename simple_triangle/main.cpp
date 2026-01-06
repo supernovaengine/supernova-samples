@@ -4,7 +4,7 @@ using namespace Supernova;
 Scene scene;
 Polygon triangle(&scene);
 
-void init(){
+SUPERNOVA_INIT void init(){
     triangle.addVertex(0, -100);
     triangle.addVertex(-50, 50);
     triangle.addVertex(50, 50);

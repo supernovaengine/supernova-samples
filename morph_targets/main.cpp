@@ -19,7 +19,7 @@ Scene uiscene;
 Text text(&uiscene);
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.setGlobalIllumination(0.1);
     scene.setCamera(camera.getEntity());
 

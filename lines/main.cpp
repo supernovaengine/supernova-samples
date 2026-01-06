@@ -12,7 +12,7 @@ void onTouchMove(int pointer, float x, float y);
 void onMouseScroll(float xoffset, float yoffset, int mods);
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     lastTouchPos = Vector2(0, 0);
 
     scene.setCamera(camera.getEntity());

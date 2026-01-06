@@ -21,7 +21,7 @@ Shape capsule(&scene);
 TimedAction timedaction(&scene);
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 30, 30);

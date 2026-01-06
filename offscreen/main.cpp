@@ -21,7 +21,7 @@ float rotation = 0;
 void onUpdate();
 void onKeyDown(int key, bool repeat, int mods);
 
-void init(){
+SUPERNOVA_INIT void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
 

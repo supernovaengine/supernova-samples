@@ -29,7 +29,7 @@ bool up, down, left, right;
 
 void onUpdate();
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     scene.setGlobalIllumination(0.3);
     scene.setBackgroundColor(0.8, 0.8, 0.8);

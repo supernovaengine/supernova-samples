@@ -19,7 +19,7 @@ const int numObjects = 4;
 void onUpdate();
 
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     camera.setType(CameraType::CAMERA_ORTHO);
     camera.setTransparentSort(false);

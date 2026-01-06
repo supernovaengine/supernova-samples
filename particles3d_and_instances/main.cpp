@@ -34,7 +34,7 @@ Text text(&uiscene);
 
 ParticlesType type;
 
-void init(){
+SUPERNOVA_INIT void init(){
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     text.setText("Sprite" + parttext);

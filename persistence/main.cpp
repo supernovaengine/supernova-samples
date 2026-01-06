@@ -58,7 +58,7 @@ void onButton_storage_read(){
     UserSettings::removeKey("key4");
 }
 
-void init(){
+SUPERNOVA_INIT void init(){
     button_save.setTexture("asset://Button_Normal.png");
     button_save.setTexturePressed("/Button_Disable.png");
     button_save.setPosition(100, 100, 0);

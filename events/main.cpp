@@ -25,7 +25,7 @@ Scene scene;
 
 Text text(&scene);
 
-void init(){
+SUPERNOVA_INIT void init(){
 
     text.setPosition(200, 200, 0);
     text.setText("Events example: check output");

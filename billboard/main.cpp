@@ -23,7 +23,7 @@ Text text1(&scene);
 Sprite tree2(&scene);
 Text text2(&scene);
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.setGlobalIllumination(0.1);
     scene.setCamera(camera.getEntity());
 

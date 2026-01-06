@@ -73,7 +73,7 @@ void startPositions(){
 }
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.getSystem<PhysicsSystem>()->onContactAdded3D = onContactAdded3D;
     scene.getSystem<PhysicsSystem>()->onContactPersisted3D = onContactPersisted3D;
     scene.getSystem<PhysicsSystem>()->onContactRemoved3D = onContactRemoved3D;

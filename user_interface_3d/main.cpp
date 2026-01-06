@@ -42,7 +42,7 @@ Container vcontainer(&uiscene);
 Container hcontainer(&uiscene);
 
 
-void init(){
+SUPERNOVA_INIT void init(){
     scene.setCamera(camera.getEntity());
     scene.setGlobalIllumination(0.5);
 
