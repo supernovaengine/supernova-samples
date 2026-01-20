@@ -62,12 +62,12 @@ SUPERNOVA_INIT void init(){
     carengine.setAttenuationModel(AudioAttenuation::LINEAR_DISTANCE);
     carengine.play();
 
-    sky.setTexturePositiveZ("ely_hills/hills_lf.tga");
-    sky.setTextureNegativeZ("ely_hills/hills_rt.tga");
-    sky.setTexturePositiveX("ely_hills/hills_bk.tga");
-    sky.setTextureNegativeX("ely_hills/hills_ft.tga");
-    sky.setTexturePositiveY("ely_hills/hills_up.tga");
+    sky.setTextureNegativeZ("ely_hills/hills_lf.tga");
+    sky.setTexturePositiveZ("ely_hills/hills_rt.tga");
+    sky.setTextureNegativeX("ely_hills/hills_bk.tga");
+    sky.setTexturePositiveX("ely_hills/hills_ft.tga");
     sky.setTextureNegativeY("ely_hills/hills_dn.tga");
+    sky.setTexturePositiveY("ely_hills/hills_up.tga");
     sky.setAlpha(0.2);
 
     if (!carlight)

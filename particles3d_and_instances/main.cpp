@@ -84,12 +84,12 @@ SUPERNOVA_INIT void init(){
         }
     }
 
-    sky.setTextureFront("ely_hills/hills_lf.tga");
-    sky.setTextureBack("ely_hills/hills_rt.tga");
-    sky.setTextureLeft("ely_hills/hills_bk.tga");
-    sky.setTextureRight("ely_hills/hills_ft.tga");
-    sky.setTextureUp("ely_hills/hills_up.tga");
-    sky.setTextureDown("ely_hills/hills_dn.tga");
+    sky.setTextureNegativeZ("ely_hills/hills_lf.tga");
+    sky.setTexturePositiveZ("ely_hills/hills_rt.tga");
+    sky.setTextureNegativeX("ely_hills/hills_bk.tga");
+    sky.setTexturePositiveX("ely_hills/hills_ft.tga");
+    sky.setTextureNegativeY("ely_hills/hills_dn.tga");
+    sky.setTexturePositiveY("ely_hills/hills_up.tga");
 
     sun.setType(LightType::DIRECTIONAL);
     sun.setDirection(0,-0.7, -0.8);

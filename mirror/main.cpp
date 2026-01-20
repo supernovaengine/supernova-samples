@@ -50,12 +50,12 @@ SUPERNOVA_INIT void init(){
     model.setScale(20);
     model.setPosition(0,3,20);
 
-    sky.setTexturePositiveZ("ely_hills/hills_lf.tga");
-    sky.setTextureNegativeZ("ely_hills/hills_rt.tga");
-    sky.setTexturePositiveX("ely_hills/hills_bk.tga");
-    sky.setTextureNegativeX("ely_hills/hills_ft.tga");
-    sky.setTextureNegativeY("ely_hills/hills_up.tga");
-    sky.setTexturePositiveY("ely_hills/hills_dn.tga");
+    sky.setTextureNegativeZ("ely_hills/hills_lf.tga");
+    sky.setTexturePositiveZ("ely_hills/hills_rt.tga");
+    sky.setTextureNegativeX("ely_hills/hills_bk.tga");
+    sky.setTexturePositiveX("ely_hills/hills_ft.tga");
+    sky.setTextureNegativeY("ely_hills/hills_dn.tga");
+    sky.setTexturePositiveY("ely_hills/hills_up.tga");
 
     Engine::setScene(&scene);
     Engine::setCallTouchInMouseEvent(true);
