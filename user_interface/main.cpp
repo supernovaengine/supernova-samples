@@ -158,21 +158,22 @@ SUPERNOVA_INIT void init(){
 }
 
 void onWindowResize(int width, int height){
-    float bar = (float)windowcontainer.getHeight() / (float)iconlist.getHeight();
+    float contentH = static_cast<float>(iconlist.getContentHeight());
+    float viewportH = static_cast<float>(windowcontainer.getHeight());
 
+    float bar = (contentH > 0.0f) ? (viewportH / contentH) : 1.0f;
+    if (bar > 1.0f) bar = 1.0f;
     scroll.setBarSize(bar);
 
-    if (bar >= 1){
-        scroll.setVisible(false);
-    }else{
-        scroll.setVisible(true);
-    }
+    scroll.setVisible(bar < 1.0f);
 }
 
 void onChangeScroll(float step){
-    int diff = iconlist.getHeight() - windowcontainer.getHeight();
+    int contentH = static_cast<int>(iconlist.getContentHeight());
+    int viewportH = static_cast<int>(windowcontainer.getHeight());
 
-    iconlist.setPositionOffset(Vector2(0, -step*diff));
+    int scrollRange = std::max(0, contentH - viewportH);
+    iconlist.setPositionOffset(Vector2(0, -step * scrollRange));
 }
 
 void onPress(){
