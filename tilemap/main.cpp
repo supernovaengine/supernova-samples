@@ -97,11 +97,15 @@ SUPERNOVA_INIT void init(){
         tilemap.addTile(16, Vector2(i*tilesize,1*tilesize), tilesize, tilesize);
     }
 
+    bg.setAutoTransparency(false);
+    tilemap.setAutoTransparency(false);
+    for (auto& object : objects){
+        object.setAutoTransparency(false);
+    }
 
     Engine::setScene(&scene);
     Engine::addSceneLayer(&uiscene);
     Engine::setCallTouchInMouseEvent(true);
-    Engine::setAutomaticTransparency(false);
 
     Engine::onUpdate = onUpdate;
 }
