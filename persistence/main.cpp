@@ -60,7 +60,7 @@ void onButton_storage_read(){
 
 SUPERNOVA_INIT void init(){
     button_save.setTexture("asset://Button_Normal.png");
-    button_save.setTexturePressed("/Button_Disable.png");
+    button_save.setTexturePressed("Button_Disable.png");
     button_save.setPosition(100, 100, 0);
     button_save.setSize(200, 100);
     button_save.setPatchMargin(5);
