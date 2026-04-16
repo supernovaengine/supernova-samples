@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 const float cubeSize = 1;
 const float sphereSize = 1;
@@ -73,7 +73,7 @@ void startPositions(){
 }
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.getSystem<PhysicsSystem>()->onContactAdded3D = onContactAdded3D;
     scene.getSystem<PhysicsSystem>()->onContactPersisted3D = onContactPersisted3D;
     scene.getSystem<PhysicsSystem>()->onContactRemoved3D = onContactRemoved3D;

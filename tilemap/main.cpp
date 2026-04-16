@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene uiscene;
 Text text(&uiscene);
@@ -19,7 +19,7 @@ const int numObjects = 4;
 void onUpdate();
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     camera.setType(CameraType::CAMERA_ORTHO);
     camera.setTransparentSort(false);

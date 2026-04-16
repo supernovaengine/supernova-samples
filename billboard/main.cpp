@@ -1,6 +1,6 @@
-#include "Supernova.h"
+#include "Doriax.h"
 
-using namespace Supernova;
+using namespace doriax;
 
 void onUpdate();
 void onKeyDown(int key, bool repeat, int mods);
@@ -23,7 +23,7 @@ Text text1(&scene);
 Sprite tree2(&scene);
 Text text2(&scene);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.setGlobalIllumination(0.1);
     scene.setCamera(camera.getEntity());
 

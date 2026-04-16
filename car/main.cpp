@@ -1,7 +1,7 @@
-#include "Supernova.h"
+#include "Doriax.h"
 
 
-using namespace Supernova;
+using namespace doriax;
 
 Scene scene;
 Scene uiscene;
@@ -29,7 +29,7 @@ bool up, down, left, right;
 
 void onUpdate();
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     scene.setGlobalIllumination(0.3);
     scene.setBackgroundColor(0.8, 0.8, 0.8);

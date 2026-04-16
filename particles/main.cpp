@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 enum class ParticlesType{
     POINTS,
@@ -20,7 +20,7 @@ ParticlesType type;
 
 void onKeyDown(int key, bool repeat, int mods);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     text.setText("Sprite" + parttext);

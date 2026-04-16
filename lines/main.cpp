@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Vector2 lastTouchPos;
 
@@ -12,7 +12,7 @@ void onTouchMove(int pointer, float x, float y);
 void onMouseScroll(float xoffset, float yoffset, int mods);
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     lastTouchPos = Vector2(0, 0);
 
     scene.setCamera(camera.getEntity());

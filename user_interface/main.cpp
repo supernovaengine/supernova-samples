@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene scene;
 
@@ -21,7 +21,7 @@ void onChangeScroll(float step);
 void onPress();
 void onPress2();
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
     Engine::setScalingMode(Scaling::NATIVE);

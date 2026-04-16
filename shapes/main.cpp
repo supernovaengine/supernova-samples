@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 void onActionStep();
 void onKeyDown(int key, bool repeat, int mods);
@@ -21,7 +21,7 @@ Shape capsule(&scene);
 TimedAction timedaction(&scene);
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.setCamera(camera.getEntity());
 
     camera.setPosition(0, 30, 30);

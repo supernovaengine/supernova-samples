@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 void onKeyDown(int key, bool repeat, int mods);
 void onTouchStart(int pointer, float x, float y);
@@ -19,7 +19,7 @@ Scene uiscene;
 Text text(&uiscene);
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.setGlobalIllumination(0.1);
     scene.setCamera(camera.getEntity());
 

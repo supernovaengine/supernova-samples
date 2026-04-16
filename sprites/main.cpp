@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene scene;
 
@@ -12,7 +12,7 @@ SpriteAnimation spriteanim(&scene);
 void onActionStart();
 void onTouchStart(int pointer, float x, float y);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     camera.setType(CameraType::CAMERA_ORTHO);
     scene.setCamera(camera.getEntity());

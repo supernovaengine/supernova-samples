@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 void onUpdate();
 void onCharInput(wchar_t);
@@ -25,7 +25,7 @@ Scene scene;
 
 Text text(&scene);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     text.setPosition(200, 200, 0);
     text.setText("Events example: check output");

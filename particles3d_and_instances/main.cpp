@@ -1,6 +1,6 @@
-#include "Supernova.h"
+#include "Doriax.h"
 
-using namespace Supernova;
+using namespace doriax;
 
 void onUpdate();
 void onKeyDown(int key, bool repeat, int mods);
@@ -34,7 +34,7 @@ Text text(&uiscene);
 
 ParticlesType type;
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
 
     text.setText("Sprite" + parttext);

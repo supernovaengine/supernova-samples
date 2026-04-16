@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene scene;
 
@@ -21,7 +21,7 @@ void onActionStep();
 void onActionStart();
 void onTouchStart(int pointer, float x, float y);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     text.setText("Click on screen to start");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);

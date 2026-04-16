@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 float lastX;
 float lastY;
@@ -25,7 +25,7 @@ void onKeyUp(int key, bool repeat, int mods);
 void onTouchStart(int pointer, float x, float y);
 void onTouchMove(int pointer, float x, float y);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     camera.setPosition(0, 15, -60);
 
     terrain.setName("terrain");

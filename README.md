@@ -1,6 +1,6 @@
-# Supernova Engine's samples
+# Doriax Engine's samples
 
-This repository contains samples projects of [Supernova Engine's website](http://supernovaengine.org)
+This repository contains samples projects of [Doriax Engine's website](http://doriax.org)
 
 ## Third-party assets
 

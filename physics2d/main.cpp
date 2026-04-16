@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 #define MAXCRATES 4
 
@@ -67,7 +67,7 @@ void startPositions(){
 }
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     text.setText("Press any key to reset");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);

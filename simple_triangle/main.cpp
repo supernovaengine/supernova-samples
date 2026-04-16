@@ -1,10 +1,10 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene scene;
 Polygon triangle(&scene);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     triangle.addVertex(0, -100);
     triangle.addVertex(-50, 50);
     triangle.addVertex(50, 50);

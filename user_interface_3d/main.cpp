@@ -1,6 +1,6 @@
-#include "Supernova.h"
+#include "Doriax.h"
 
-using namespace Supernova;
+using namespace doriax;
 
 void onUpdate();
 void onCharInput(wchar_t codepoint);
@@ -42,7 +42,7 @@ Container vcontainer(&uiscene);
 Container hcontainer(&uiscene);
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.setCamera(camera.getEntity());
     scene.setGlobalIllumination(0.5);
 

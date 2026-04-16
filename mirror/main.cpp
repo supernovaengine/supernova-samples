@@ -1,6 +1,6 @@
-#include "Supernova.h"
+#include "Doriax.h"
 
-using namespace Supernova;
+using namespace doriax;
 
 void onUpdate();
 void onKeyDown(int key, bool repeat, int mods);
@@ -21,7 +21,7 @@ Camera cameramirror(&scene);
 Sprite mirror(&scene);
 
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     scene.setCamera(camera.getEntity());
     scene.setGlobalIllumination(0.5);
 

@@ -1,5 +1,5 @@
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 float lastX;
 float lastY;
@@ -38,7 +38,7 @@ void startPositions(){
     }
 }
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
 
     for (int i = 0; i < 5; i++){
         for (int j = 0; j < 5; j++){

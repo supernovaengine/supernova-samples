@@ -1,6 +1,6 @@
 
-#include "Supernova.h"
-using namespace Supernova;
+#include "Doriax.h"
+using namespace doriax;
 
 Scene scene;
 Image image(&scene);
@@ -21,7 +21,7 @@ float rotation = 0;
 void onUpdate();
 void onKeyDown(int key, bool repeat, int mods);
 
-SUPERNOVA_INIT void init(){
+DORIAX_INIT void init(){
     Engine::setCanvasSize(1000, 480);
     Engine::setCallTouchInMouseEvent(true);
 
