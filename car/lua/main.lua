@@ -6,7 +6,7 @@ terrain = Shape(scene)
 car = Model(scene)
 house = Model(scene)
 sky = SkyBox(scene)
-carengine = Audio(scene)
+carengine = Sound(scene, true)
 fog = Fog(scene)
 
 text = Text(uiscene)
@@ -81,14 +81,13 @@ terrain:setTexture("road.png")
 
 car:loadModel("jeep/Jeep.obj")
 car:setScale(0.5)
-car:addChild(carengine)
+car:addChild(carengine.entity)
 
-carengine:loadAudio("engine.wav")
-carengine.sound3D = true
+carengine:loadSound("engine.wav")
 carengine.lopping = true
 carengine.dopplerFactor = 10.0
 carengine:setMinMaxDistance(1, 100)
-carengine.attenuationModel = AudioAttenuation.LINEAR_DISTANCE
+carengine.attenuationModel = SoundAttenuation.LINEAR_DISTANCE
 carengine:play()
 
 sky:setTextureNegativeZ("ely_hills/hills_lf.tga");

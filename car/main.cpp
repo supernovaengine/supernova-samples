@@ -13,7 +13,7 @@ Model car(&scene);
 
 Model house(&scene);
 SkyBox sky(&scene);
-Audio carengine(&scene);
+Sound carengine(&scene, true);
 Fog fog(&scene);
 
 Light* carlight = NULL;
@@ -52,14 +52,13 @@ DORIAX_INIT void init(){
 
     car.loadModel("jeep/Jeep.obj");
     car.setScale(0.5);
-    car.addChild(&carengine);
+    car.addChild(carengine.getEntity());
 
-    carengine.loadAudio("engine.wav");
-    carengine.setSound3D(true);
+    carengine.loadSound("engine.wav");
     carengine.setLopping(true);
     carengine.setDopplerFactor(10.0);
     carengine.setMinMaxDistance(1, 100);
-    carengine.setAttenuationModel(AudioAttenuation::LINEAR_DISTANCE);
+    carengine.setAttenuationModel(SoundAttenuation::LINEAR_DISTANCE);
     carengine.play();
 
     sky.setTextureNegativeZ("ely_hills/hills_lf.tga");
