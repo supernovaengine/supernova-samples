@@ -15,15 +15,13 @@ curve = 0
 speed = 0
 rotation = 0
 
-up, down, left, right = false
-
 function onUpdate()
 
     text.text = tostring(Engine.framerate)
 
-    if (Input.isKeyPressed(Input.KEY_UP)) then
+    if (Input.isKeyPressed(Input.KEY_UP) or Input.isKeyPressed(Input.KEY_W)) then
         speed = speed + 0.1
-    elseif (Input.isKeyPressed(Input.KEY_DOWN)) then
+    elseif (Input.isKeyPressed(Input.KEY_DOWN) or Input.isKeyPressed(Input.KEY_S)) then
         speed = speed - 0.1
     end
     speed = speed * 0.95
@@ -31,11 +29,11 @@ function onUpdate()
     carengine.volume = 1.0 + (math.abs(speed) * 0.5)
     carengine.speed = 1.0 + (math.abs(speed) * 0.5)
 
-    if (Input.isKeyPressed(Input.KEY_LEFT)) then
+    if (Input.isKeyPressed(Input.KEY_LEFT) or Input.isKeyPressed(Input.KEY_A)) then
         if (curve < 3) then
             curve = curve + 0.4
         end
-    elseif (Input.isKeyPressed(Input.KEY_RIGHT)) then
+    elseif (Input.isKeyPressed(Input.KEY_RIGHT) or Input.isKeyPressed(Input.KEY_D)) then
         if (curve > -3) then
             curve = curve - 0.4
         end
@@ -84,7 +82,7 @@ car:setScale(0.5)
 car:addChild(carengine.entity)
 
 carengine:loadSound("engine.wav")
-carengine.lopping = true
+carengine.looping = true
 carengine.dopplerFactor = 10.0
 carengine:setMinMaxDistance(1, 100)
 carengine.attenuationModel = SoundAttenuation.LINEAR_DISTANCE

@@ -25,8 +25,6 @@ float curve = 0;
 float speed = 0;
 float rotation = 0;
 
-bool up, down, left, right;
-
 void onUpdate();
 
 DORIAX_INIT void init(){
@@ -97,9 +95,9 @@ void onUpdate(){
 
     text.setText(std::to_string(Engine::getFramerate()).c_str());
 
-    if (Input::isKeyPressed(D_KEY_UP)){
+    if (Input::isKeyPressed(D_KEY_UP) || Input::isKeyPressed(D_KEY_W)){
         speed += 0.1;
-    }else if (Input::isKeyPressed(D_KEY_DOWN)){
+    }else if (Input::isKeyPressed(D_KEY_DOWN) || Input::isKeyPressed(D_KEY_S)){
         speed -= 0.1;
     }
     speed *= 0.95;
@@ -107,10 +105,10 @@ void onUpdate(){
     carengine.setVolume(1.0 + (abs(speed) * 0.5));
     carengine.setSpeed(1.0 + (abs(speed) * 0.5));
 
-    if (Input::isKeyPressed(D_KEY_LEFT)){
+    if (Input::isKeyPressed(D_KEY_LEFT) || Input::isKeyPressed(D_KEY_A)){
         if (curve < 3)
             curve += 0.4;
-    }else if (Input::isKeyPressed(D_KEY_RIGHT)){
+    }else if (Input::isKeyPressed(D_KEY_RIGHT) || Input::isKeyPressed(D_KEY_D)){
         if (curve > -3)
             curve -= 0.4;
     }else{

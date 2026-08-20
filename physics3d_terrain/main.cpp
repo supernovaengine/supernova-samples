@@ -29,11 +29,13 @@ void onTouchMove(int pointer, float x, float y);
 void startPositions(){
     for (int i = 0; i < 5; i++){
         for (int j = 0; j < 5; j++){
-            cubes[(5*i)+j]->setPosition(10*i - 25, 15, 10*j - 25);
+            cubes[(5*i)+j]->getBody3D().setPosition(Vector3(10*i - 25, 15, 10*j - 25));
             cubes[(5*i)+j]->getBody3D().setLinearVelocity(Vector3(0,0,0));
+            cubes[(5*i)+j]->getBody3D().setAngularVelocity(Vector3(0,0,0));
 
-            spheres[(5*i)+j]->setPosition(10*i - 20, 15, 10*j - 20);
+            spheres[(5*i)+j]->getBody3D().setPosition(Vector3(10*i - 20, 15, 10*j - 20));
             spheres[(5*i)+j]->getBody3D().setLinearVelocity(Vector3(0,0,0));
+            spheres[(5*i)+j]->getBody3D().setAngularVelocity(Vector3(0,0,0));
         }
     }
 }

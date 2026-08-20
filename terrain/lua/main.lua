@@ -63,12 +63,12 @@ end
 function onKeyDown(key, rep, mods)
     if (key == Input.KEY_X) then
         camera:setPosition(camera.position.x, camera.position.y+10, camera.position.z);
-        camera:setTarget(camera.view.x, camera.view.y+10, camera.view.z);
+        camera:setTarget(camera.target.x, camera.target.y+10, camera.target.z);
     end
 
     if (key == Input.KEY_Z) then
         camera:setPosition(camera.position.x, camera.position.y-10, camera.position.z);
-        camera:setTarget(camera.view.x, camera.view.y-10, camera.view.z);
+        camera:setTarget(camera.target.x, camera.target.y-10, camera.target.z);
     end
 end
 

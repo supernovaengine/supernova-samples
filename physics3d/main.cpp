@@ -57,18 +57,22 @@ void onBodyDeactivated3D(Body3D bA){
 }
 
 void startPositions(){
-    cubesjoint[1]->setPosition(4, 9, 2);
+    cubesjoint[1]->getBody3D().setPosition(Vector3(4, 9, 2));
+    cubesjoint[1]->getBody3D().setLinearVelocity(Vector3(0, 0, 0));
+    cubesjoint[1]->getBody3D().setAngularVelocity(Vector3(0, 0, 0));
 
     for (int i = 0; i < 4; i++){
         if (i < 2){
-            cubes[i]->setPosition((4*i)-6, 11, -0.5);
+            cubes[i]->getBody3D().setPosition(Vector3((4*i)-6, 11, -0.5));
         }else{
-            cubes[i]->setPosition((4*i)-6, 11, 0.5);
+            cubes[i]->getBody3D().setPosition(Vector3((4*i)-6, 11, 0.5));
         }
         cubes[i]->getBody3D().setLinearVelocity(Vector3(0, 0, 0));
+        cubes[i]->getBody3D().setAngularVelocity(Vector3(0, 0, 0));
 
-        spheres[i]->setPosition((4*i)-5, 7, 0);
+        spheres[i]->getBody3D().setPosition(Vector3((4*i)-5, 7, 0));
         spheres[i]->getBody3D().setLinearVelocity(Vector3(0, 0, 0));
+        spheres[i]->getBody3D().setAngularVelocity(Vector3(0, 0, 0));
     }
 }
 
@@ -87,12 +91,12 @@ DORIAX_INIT void init(){
     cubesjoint[0]->setName("cubejoint0");
     cubesjoint[0]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
     cubesjoint[0]->getBody3D().load();
-    cubesjoint[0]->setPosition(0, 9, 2);
+    cubesjoint[0]->getBody3D().setPosition(Vector3(0, 9, 2));
 
     cubesjoint[1] = new Shape(&scene);
     cubesjoint[1]->createBox(cubeSize, cubeSize, cubeSize);
     cubesjoint[1]->setTexture("block.png");
-    cubesjoint[1]->setName("cubejoint0");
+    cubesjoint[1]->setName("cubejoint1");
     cubesjoint[1]->getBody3D().setType(BodyType::DYNAMIC);
     cubesjoint[1]->getBody3D().createBoxShape(cubeSize, cubeSize, cubeSize);
     cubesjoint[1]->getBody3D().load();

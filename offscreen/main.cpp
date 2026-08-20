@@ -90,17 +90,17 @@ void onKeyDown(int key, bool repeat, int mods){
 }
 
 void onUpdate(){
-    if (Input::isKeyPressed(D_KEY_UP)){
+    if (Input::isKeyPressed(D_KEY_UP) || Input::isKeyPressed(D_KEY_W)){
         speed += 0.1;
-    }else if (Input::isKeyPressed(D_KEY_DOWN)){
+    }else if (Input::isKeyPressed(D_KEY_DOWN) || Input::isKeyPressed(D_KEY_S)){
         speed -= 0.1;
     }
     speed *= 0.95;
 
-    if (Input::isKeyPressed(D_KEY_LEFT)){
+    if (Input::isKeyPressed(D_KEY_LEFT) || Input::isKeyPressed(D_KEY_A)){
         if (curve < 3)
             curve += 0.4;
-    }else if (Input::isKeyPressed(D_KEY_RIGHT)){
+    }else if (Input::isKeyPressed(D_KEY_RIGHT) || Input::isKeyPressed(D_KEY_D)){
         if (curve > -3)
             curve -= 0.4;
     }else{

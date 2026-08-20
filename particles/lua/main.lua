@@ -44,16 +44,16 @@ sprite:setPosition(300, 100, 0);
 sprite.pivotPreset = PivotPreset.CENTER;
 sprite:setTexture("explosion.png");
 sprite:setSize(50, 50);
-for i = 0,3,1 do
-    for j = 0,3,1 do
+for i = 0,2 do
+    for j = 0,2 do
         sprite:addFrame((i+(j*3)), "", Rect(i * ((1/3.0)), j * ((1/3.0)), (1/3.0), (1/3.0)));
     end
 end
 
 points:setPosition(300, 100, 0)
 points:setTexture("explosion.png")
-for i = 0,3,1 do
-    for j = 0,3,1 do
+for i = 0,2 do
+    for j = 0,2 do
         points:addSpriteFrame((i+(j*3)), "", Rect(i * ((1/3.0)), j * ((1/3.0)), (1/3.0), (1/3.0)));
     end
 end

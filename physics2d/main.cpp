@@ -45,25 +45,28 @@ bool preSolve2D(Body2D bA, size_t sA, Body2D bB, size_t sB, Manifold2D manifold)
 }
 
 void startPositions(){
-    crates[0]->setPosition(170, 600);
-    //crates[0]->setRotation(0, 0, 0);
+    crates[0]->getBody2D().setPosition(Vector2(170, 600));
     crates[0]->getBody2D().setLinearVelocity(Vector2(0, 0));
     crates[0]->getBody2D().setAngularVelocity(0);
     crates[0]->getBody2D().setLinearDamping(0);
     crates[0]->getBody2D().setAngularDamping(0);
     crates[0]->getBody2D().applyMassFromShapes();
 
-    crates[1]->setPosition(110, 100);
+    crates[1]->getBody2D().setPosition(Vector2(110, 100));
     crates[1]->getBody2D().setLinearVelocity(Vector2(0, 0));
+    crates[1]->getBody2D().setAngularVelocity(0);
 
-    crates[2]->setPosition(500, 300);
+    crates[2]->getBody2D().setPosition(Vector2(500, 300));
     crates[2]->getBody2D().setLinearVelocity(Vector2(0, 0));
+    crates[2]->getBody2D().setAngularVelocity(0);
 
-    crates[3]->setPosition(700, 300);
+    crates[3]->getBody2D().setPosition(Vector2(700, 300));
     crates[3]->getBody2D().setLinearVelocity(Vector2(0, 0));
+    crates[3]->getBody2D().setAngularVelocity(0);
 
-    ball->setPosition(130, 450);
-    ball->getBody2D().setLinearVelocity(Vector2(0, 0)); 
+    ball->getBody2D().setPosition(Vector2(130, 450));
+    ball->getBody2D().setLinearVelocity(Vector2(0, 0));
+    ball->getBody2D().setAngularVelocity(0);
 }
 
 

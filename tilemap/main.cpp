@@ -26,7 +26,7 @@ DORIAX_INIT void init(){
     scene.setCamera(camera.getEntity());
     scene.setBackgroundColor(0.867, 0.973, 1.0);
 
-    text.setText("Use left and right arrow to move");
+    text.setText("Use A/D or left and right arrow to move");
     text.setAnchorPreset(AnchorPreset::CENTER_TOP);
     text.setColor(0.3, 0.3, 0.3, 1.0);
 
@@ -111,10 +111,10 @@ DORIAX_INIT void init(){
 }
 
 void onUpdate() {
-    if (Input::isKeyPressed(D_KEY_LEFT)){
+    if (Input::isKeyPressed(D_KEY_LEFT) || Input::isKeyPressed(D_KEY_A)){
         Vector3 oldPos = map.getPosition();
         map.setPosition(oldPos.x+10, oldPos.y, oldPos.z);
-    }else if (Input::isKeyPressed(D_KEY_RIGHT)){
+    }else if (Input::isKeyPressed(D_KEY_RIGHT) || Input::isKeyPressed(D_KEY_D)){
         Vector3 oldPos = map.getPosition();
         map.setPosition(oldPos.x-10, oldPos.y, oldPos.z);
     }

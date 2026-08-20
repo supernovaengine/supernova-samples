@@ -34,7 +34,7 @@ DORIAX_INIT void init(){
     for (int i = 0; i < 8; i++)
         sprite2.addFrame(i, "", Rect((i+1.0)/8, 0.0, 1.0/8, 1.0));
     sprite2.setFrame(0);
-    sprite.setName("Sprite");
+    sprite2.setName("Sprite2");
     sprite2.setPosition(400,200,0);
     sprite2.setSize(200,200);
 
