@@ -34,7 +34,7 @@ DORIAX_INIT void init(){
 
     model.loadModel("CesiumMan.glb");
     model.setScale(4);
-    model.setRotation(-90,0,0);
+    model.setRotation(0,90,0);
     model.getAnimation(0).setLoop(true);
 
     if (!sun)

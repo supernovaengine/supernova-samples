@@ -29,10 +29,15 @@ DORIAX_INIT void init(){
 
     sun.setType(LightType::DIRECTIONAL);
     sun.setDirection(0, -0.4, -0.6);
+    sun.setIntensity(3);
 
     terrain.createPlane(200, 200);
     terrain.setTexture("ground.png");
     terrain.setName("terrain");
+    // Light the shaded sides from the sky cubemap instead of a flat ambient colour.
+    // A mirror shows the side of an object facing it, which the sun never reaches:
+    // with only flat ambient that side comes out a washed-out white.
+    terrain.setReceiveIBL(true);
 
     // A planar mirror in a single call: an upright wall surface turned into a
     // mirror. The engine creates and drives the reflection camera internally and
@@ -46,6 +51,7 @@ DORIAX_INIT void init(){
     model.loadModel("WaterBottle.glb");
     model.setScale(20);
     model.setPosition(0,3,20);
+    model.setReceiveIBL(true);
 
     sky.setTextureNegativeZ("ely_hills/hills_lf.tga");
     sky.setTexturePositiveZ("ely_hills/hills_rt.tga");

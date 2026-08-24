@@ -33,9 +33,7 @@ DORIAX_INIT void init(){
     terrain.setTexture("ground.png");
 
     model.loadModel("AnimatedMorphCube.gltf");
-    model.setScale(100);
     model.setPosition(0,1,0);
-    model.setRotation(0,90,0);
     model.getAnimation(0).setLoop(true);
 
     if (!sun)

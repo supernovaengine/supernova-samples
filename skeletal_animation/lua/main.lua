@@ -42,7 +42,7 @@ terrain:setTexture("ground.png")
 
 model:loadModel("CesiumMan.glb")
 model:setScale(4)
-model:setRotation(-90,0,0)
+model:setRotation(0,90,0)
 model:getAnimation(0).loop = true
 
 sun.type = LightType.DIRECTIONAL
